@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   return (
@@ -25,7 +26,7 @@ export default function Home() {
               </a>
           </div>
           <div className="space-y-5 rounded-2xl border border-neutral-800 bg-neutral-950/40 p-6 shadow-sm">
-            <ContactForm />
+            <ChatWidget endpoint="https://n8n.crisnnino.com/webhook/chatagentcrisncino"/>
           </div>
 
         </div>
