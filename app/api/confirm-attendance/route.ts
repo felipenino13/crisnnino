@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     const body = await request.json();
 
     const response = await fetch(
-      "https://n8n.crisnnino.com/webhook-test/45690b4b-07e9-4ca1-ba8e-61281a7cf2e7",
+      "https://n8n.crisnnino.com/webhook/45690b4b-07e9-4ca1-ba8e-61281a7cf2e7",
       {
         method: "POST",
         headers: {

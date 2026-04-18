@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Gift, MapPin, X } from "lucide-react";
 import { Gluten } from "next/font/google";
 import Image from "next/image";
@@ -23,8 +23,17 @@ export default function BabyClient({
 }: BabyClientProps) {
   const [openGiftModal, setOpenGiftModal] = useState(false);
   const [openMapModal, setOpenMapModal] = useState(false);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
+
+  useEffect(() => {
+    const confirmed = localStorage.getItem("confirmed");
+
+    if (confirmed === "true") {
+        setIsConfirmed(true);
+    }
+    }, []);
 
   const handleConfirmAttendance = async () => {
   try {
