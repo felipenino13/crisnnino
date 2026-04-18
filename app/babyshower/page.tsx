@@ -4,29 +4,26 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Baby Shower Agustín 🐣",
   description: "Estás invitado a celebrar este día tan especial con nosotros 💛",
-
   openGraph: {
     title: "Baby Shower Agustín 🐣",
     description: "Estás invitado a celebrar este día tan especial con nosotros 💛",
-    url: "https://crisnnino.com/babyshower",
-    siteName: "Baby Shower Agustín",
+    url: "/babyshower",
     images: [
       {
-        url: "https://crisnnino.com/img/poster-babyshower.jpg",
+        url: "/img/poster-babyshower.jpg",
         width: 1200,
         height: 630,
         alt: "Invitación Baby Shower Agustín",
       },
     ],
-    locale: "es_CO",
     type: "website",
+    locale: "es_CO",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Baby Shower Agustín 🐣",
     description: "Estás invitado a celebrar este día tan especial con nosotros 💛",
-    images: ["https://crisnnino.com/img/poster-babyshower.jpg"],
+    images: ["/img/poster-babyshower.jpg"],
   },
 };
 
