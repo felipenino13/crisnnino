@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Gift, MapPin, X } from "lucide-react";
 import { Gluten } from "next/font/google";
+import Image from "next/image";
 
 const gluten = Gluten({
   subsets: ["latin"],
@@ -22,15 +23,53 @@ export default function BabyClient({
 }: BabyClientProps) {
   const [openGiftModal, setOpenGiftModal] = useState(false);
   const [openMapModal, setOpenMapModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isConfirmed, setIsConfirmed] = useState(false);
+
+  const handleConfirmAttendance = async () => {
+  try {
+    setIsSubmitting(true);
+
+    const response = await fetch(
+      "https://n8n.crisnnino.com/webhook-test/45690b4b-07e9-4ca1-ba8e-61281a7cf2e7",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name,
+            etapa,
+            regalo,
+            source: "babyshower",
+            confirmedAt: new Date().toISOString(),
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("No se pudo enviar la confirmación");
+    }
+
+    setIsConfirmed(true);
+  } catch (error) {
+    console.error("Error al confirmar asistencia:", error);
+    alert("Hubo un problema al confirmar tu asistencia. Inténtalo de nuevo.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <div className="relative h-dvh w-full overflow-hidden">
       <video
         src="/video/pollitoVideoDos.webm"
+        poster="/img/poster-babyshower.jpg"
         autoPlay
         muted
         loop
         playsInline
+        preload="metadata"
         className="absolute top-0 left-0 h-full w-full object-cover"
       />
 
@@ -43,17 +82,20 @@ export default function BabyClient({
               <p className="text-center text-4xl font-[700] tracking-tight text-[#FFF662]">
                 16 MAY
               </p>
-              <p className="text-center text-1xl">3:00 p.m. Funza</p>
+              <p className="text-center text-xl">3:00 p.m. Funza</p>
             </div>
           </div>
 
           <div className="relative">
             <div className="relative z-20">
-                <img
+                <Image
                 className="m-auto md:-mb-6 -mb-3 z-10 md:w-[400px] w-[300px]"
                 src="/img/tituloBabyShower.png"
                 alt="Título baby shower"
-                />    
+                width={400}
+                height={200}
+                priority
+                />
             </div>
             <div
               className={`${gluten.className} m-auto w-fit rounded-t-lg bg-[#C22B00]/50 p-4 text-white backdrop-blur-sm drop-shadow-lg z-0 text-center`}
@@ -61,20 +103,23 @@ export default function BabyClient({
               <p className="text-center text-4xl font-[700] tracking-tight text-[#FFF662]">
                 {name}
               </p>
-              <p className="text-center text-1xl">
+              <p className="text-center text-xl">
                 Acompañame a celebrar este día especial
               </p>
-              <button
-                type="button"
-                onClick={() =>
-                    window.open(
-                    "https://waze.com/ul?ll=4.7310472,-74.2218603&navigate=yes",
-                    "_blank"
-                    )
-                }
-                className={`${gluten.className} mb-3 rounded-xl bg-[#05C8F7] p-3 text-black w-fit mt-3`}>
-                    Confirmar asistencia
+              {!isConfirmed ? (
+                <button
+                    type="button"
+                    onClick={handleConfirmAttendance}
+                    disabled={isSubmitting}
+                    className={`${gluten.className} mt-3 mb-3 w-fit rounded-xl bg-[#05C8F7] p-3 text-black disabled:cursor-not-allowed disabled:opacity-50`}
+                >
+                    {isSubmitting ? "Confirmando..." : "Confirmar asistencia"}
                 </button>
+                ) : (
+                <p className={`${gluten.className} mt-3 mb-3 text-center text-white`}>
+                    Gracias por confirmar tu asistencia 💛
+                </p>
+                )}
             </div>
           </div>
         </div>
@@ -156,9 +201,7 @@ export default function BabyClient({
               type="button"
               onClick={() =>
                 window.open(
-                  "https://www.google.com/maps?q=4.7310472,-74.2218603",
-                  "_blank"
-                )
+                  "https://www.google.com/maps?q=4.7300259,-74.2239493", "_blank")
               }
               className={`${gluten.className} mb-3 w-full rounded-xl bg-[#0119B9] p-3 text-white`}>
                 Abrir en Google Maps
@@ -168,9 +211,7 @@ export default function BabyClient({
               type="button"
               onClick={() =>
                 window.open(
-                  "https://waze.com/ul?ll=4.7310472,-74.2218603&navigate=yes",
-                  "_blank"
-                )
+                  "https://waze.com/ul?ll=4.7300259,-74.2239493&navigate=yes", "_blank")
               }
               className={`${gluten.className} mb-3 w-full rounded-xl bg-[#05C8F7] p-3 text-black`}>
                 Abrir en Waze
