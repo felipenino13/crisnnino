@@ -26,7 +26,7 @@ export default function BabyClient({
   return (
     <div className="relative h-dvh w-full overflow-hidden">
       <video
-        src="/video/pollitoVideoDos.mp4"
+        src="/video/pollitoVideoDos.webm"
         autoPlay
         muted
         loop
@@ -50,7 +50,7 @@ export default function BabyClient({
           <div className="relative">
             <div className="relative z-20">
                 <img
-                className="m-auto md:-mb-10 -mb-6 z-10 md:w-[400px] w-[300px]"
+                className="m-auto md:-mb-6 -mb-3 z-10 md:w-[400px] w-[300px]"
                 src="/img/tituloBabyShower.png"
                 alt="Título baby shower"
                 />    
@@ -58,12 +58,11 @@ export default function BabyClient({
             <div
               className={`${gluten.className} m-auto w-fit rounded-t-lg bg-[#C22B00]/50 p-4 text-white backdrop-blur-sm drop-shadow-lg z-0 text-center`}
             >
-              <p className="text-center text-1xl">Hola</p>
               <p className="text-center text-4xl font-[700] tracking-tight text-[#FFF662]">
                 {name}
               </p>
               <p className="text-center text-1xl">
-                Te invito a celebrar este día especial con mis papitos
+                Acompañame a celebrar este día especial
               </p>
               <button
                 type="button"
@@ -73,7 +72,7 @@ export default function BabyClient({
                     "_blank"
                     )
                 }
-                className={`${gluten.className} mb-3 rounded-xl bg-[#05C8F7] p-3 text-black w-fit`}>
+                className={`${gluten.className} mb-3 rounded-xl bg-[#05C8F7] p-3 text-black w-fit mt-3`}>
                     Confirmar asistencia
                 </button>
             </div>
@@ -146,7 +145,7 @@ export default function BabyClient({
             </button>
 
             <h2 className={`${gluten.className} mb-4 text-center text-2xl font-bold text-[#BA2800]`}>
-              ¿Cómo quieres llegar?
+              ¿Cómo llegar?
             </h2>
             <p className={`${gluten.className} mb-4 text-[#000000] text-center`}>
                 Casa de retiros hermanas Franciscanas<br></br>
