@@ -1,18 +1,28 @@
 export default function Baby() {
   return (
   <>
-    <div className="grid grid-flow-col grid-rows-3 gap-4 flex justify-center bg-[#FFFFFF] h-dvh">
-        <div className="row-span-3">
-            <h1 className="text-[#000000]">hola bebe</h1>
-            <video 
-                src="/video/pollitoVideo.mp4"
-                controls
-                autoPlay
-                muted
-                loop
-                className="h-full w-auto"
-            ></video>
-        </div>
+    <div className="relative h-dvh w-full overflow-hidden">
+      
+      {/* 🎥 Video de fondo */}
+      <video
+        src="/video/pollitoVideoDos.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      />
+
+      {/* 🧱 Capa opcional (overlay oscuro o blur) */}
+      <div className="absolute inset-0 bg-black/10"></div>
+
+      {/* ✨ Contenido encima */}
+      <div className="relative z-10 flex items-center justify-center h-full">
+        <h1 className="text-white text-4xl font-bold">
+          hola bebe
+        </h1>
+      </div>
+
     </div>
 </>
   );
