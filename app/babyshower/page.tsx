@@ -17,10 +17,19 @@ export default function Baby() {
       <div className="absolute inset-0"></div>
 
       {/* ✨ Contenido encima */}
-      <div className="relative z-10 flex items-center justify-center items-end h-full">
-        <h1 className="text-white text-4xl font-bold">
-          <img src="/img/tituloBabyShower.png" alt="" width={"600px"} />
-        </h1>
+      <div className="relative z-10 flex items-center justify-center h-full">
+        <div className="content-between grid h-full">
+            <div>
+                <div className="m-auto bg-white/30 backdrop-blur-sm w-fit p-4 text-[#3B3035] rounded-b-lg">
+                    <p className="text-center text-5xl font-black tracking-tight">16 MAY</p>
+                    <p className="text-center text-1xl">3:00 p.m.</p>
+                </div>
+            </div>
+            <div>
+                <img src="/img/tituloBabyShower.png" alt="" width={"600px"} />
+            </div>
+        </div>
+        
       </div>
 
     </div>
