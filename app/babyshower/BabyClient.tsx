@@ -30,31 +30,28 @@ export default function BabyClient({
   try {
     setIsSubmitting(true);
 
-    const response = await fetch(
-      "https://n8n.crisnnino.com/webhook-test/45690b4b-07e9-4ca1-ba8e-61281a7cf2e7",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            name,
-            etapa,
-            regalo,
-            source: "babyshower",
-            confirmedAt: new Date().toISOString(),
-        }),
-      }
-    );
+    const response = await fetch("/api/confirm-attendance", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        etapa,
+        regalo,
+        source: "babyshower",
+        confirmedAt: new Date().toISOString(),
+      }),
+    });
 
     if (!response.ok) {
-      throw new Error("No se pudo enviar la confirmación");
+      throw new Error("No se pudo confirmar la asistencia");
     }
 
     setIsConfirmed(true);
   } catch (error) {
     console.error("Error al confirmar asistencia:", error);
-    alert("Hubo un problema al confirmar tu asistencia. Inténtalo de nuevo.");
+    alert("Hubo un problema al confirmar tu asistencia.");
   } finally {
     setIsSubmitting(false);
   }
