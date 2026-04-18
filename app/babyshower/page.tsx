@@ -14,12 +14,12 @@ export default function Baby() {
       />
 
       {/* 🧱 Capa opcional (overlay oscuro o blur) */}
-      <div className="absolute inset-0 bg-black/10"></div>
+      <div className="absolute inset-0"></div>
 
       {/* ✨ Contenido encima */}
-      <div className="relative z-10 flex items-center justify-center h-full">
+      <div className="relative z-10 flex items-center justify-center items-end h-full">
         <h1 className="text-white text-4xl font-bold">
-          hola bebe
+          <img src="/img/tituloBabyShower.png" alt="" width={"600px"} />
         </h1>
       </div>
 
