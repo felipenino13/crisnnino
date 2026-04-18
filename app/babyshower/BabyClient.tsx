@@ -58,6 +58,7 @@ export default function BabyClient({
     }
 
     setIsConfirmed(true);
+    localStorage.setItem("confirmed", "true");
   } catch (error) {
     console.error("Error al confirmar asistencia:", error);
     alert("Hubo un problema al confirmar tu asistencia.");
