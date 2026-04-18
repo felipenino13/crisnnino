@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Gift, MapPin, X } from "lucide-react";
-import { Gluten } from 'next/font/google'
+import { Gluten } from 'next/font/google';
+import { useSearchParams } from "next/navigation";
 
 const gluten = Gluten({
   subsets: ['latin'],
@@ -12,6 +13,11 @@ const gluten = Gluten({
 export default function Baby() {
    const [openGiftModal, setOpenGiftModal] = useState(false);
    const [openLocationModal, setOpenLocationModal] = useState(false);
+
+   const searchParams = useSearchParams();
+   const name = searchParams.get("name") || "familia";
+   const regalo = searchParams.get("regalo") || "un detalle especial";
+   const etapa = searchParams.get("etapa") || "1";
   return (
   <>
     <div className="relative h-dvh w-full overflow-hidden">
@@ -40,10 +46,15 @@ export default function Baby() {
             </div>
             <div>
                 <img className='m-auto' src="/img/tituloBabyShower.png" alt="" width={"500px"} />
-                <div className={`${gluten.className} m-auto bg-[#C22B00]/50 backdrop-blur-sm w-fit p-4 text-[#FFFFFF] rounded-t-lg drop-shadow-lg`}>
+                <div className={`${gluten.className} m-auto bg-[#C22B00]/50 backdrop-blur-sm w-fit p-4 text-[#FFFFFF] rounded-t-lg drop-shadow-lg text-center`}>
                     <p className="text-center text-2xl">Hola</p>
-                    <p className="text-center text-[#FFF662] text-5xl font-[700] tracking-tight">Wendy y Cami</p>
+                    <p className="text-center text-[#FFF662] text-5xl font-[700] tracking-tight">{name}</p>
                     <p className="text-center text-2xl">Te invito a celerbrar este día especial con mis papitos</p>
+                    <button className="bg-[#4DE7FF] text-[#0114B7] p-4 rounded-full">
+                      <p className="text-1xl font-[700]">
+                        Confirma asistencia
+                      </p>
+                    </button>
                 </div>
             </div>
         </div>
@@ -92,8 +103,8 @@ export default function Baby() {
               <p className={`${gluten.className} text-center leading-relaxed text-gray-700`}>
                 Para nosotros es muy importante tu compañía más que un regalo,
                 pero si quieres tener un detalle puedes traer pañales Winny
-                etapa <span className="font-semibold">$etapa</span>, pañitos y{" "}
-                <span className="font-semibold">$regalo</span>.
+                etapa <span className="font-semibold">{etapa}</span>, pañitos y{" "}
+                <span className="font-semibold">{regalo}</span>.
               </p>
             </div>
           </div>
@@ -120,6 +131,11 @@ export default function Baby() {
               <p className={`${gluten.className} text-center leading-relaxed text-gray-700`}>
                 Cra. 28b #13-12, Funza, Cundinamarca
               </p>
+              <button className="bg-[#4DE7FF] text-[#0114B7] p-4 rounded-full m-auto flex mt-4">
+                <p className={`${gluten.className} text-1xl font-[700]`}>
+                  ¿Como llegar?
+                </p>
+              </button>
             </div>
           </div>
         )}
