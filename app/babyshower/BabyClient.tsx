@@ -50,7 +50,7 @@ export default function BabyClient({
           <div className="relative">
             <div className="relative z-20">
                 <img
-                className="m-auto -mb-10 z-10 md:w-[400px] w-[300px]"
+                className="m-auto md:-mb-10 -mb-6 z-10 md:w-[400px] w-[300px]"
                 src="/img/tituloBabyShower.png"
                 alt="Título baby shower"
                 />    
