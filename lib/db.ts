@@ -52,7 +52,7 @@ function getDatabaseConfig(): PoolConfig {
     connectionTimeoutMillis: timeout,
     query_timeout: timeout,
     statement_timeout: timeout,
-    ssl: useSsl ? { rejectUnauthorized: false } : undefined,
+    ssl: useSsl ? { rejectUnauthorized: false } : false,
   };
 }
 
