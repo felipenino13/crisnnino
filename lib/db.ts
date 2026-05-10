@@ -1,5 +1,4 @@
 import { Pool, type PoolConfig } from "pg";
-import { cache } from "react";
 
 declare global {
   var pgPool: Pool | undefined;
@@ -72,18 +71,57 @@ export function getDb(): Pool {
   return pool;
 }
 
-export const getFirstBotTitle = cache(async (): Promise<string | null> => {
-  try {
-    const result = await getDb().query<{ title: string | null }>(
-      "SELECT title FROM bot_cris ORDER BY id ASC LIMIT 1",
-    );
+type BotContent = {
+  title: string | null;
+  backgroundBody: string | null;
+};
 
-    return result.rows[0]?.title?.trim() || null;
-  } catch (error) {
-    console.error(
-      `Failed to fetch first bot title from ${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}:`,
-      error,
-    );
+function normalizeHexColor(value: string | null | undefined): string | null {
+  const color = value?.trim();
+
+  if (!color) {
     return null;
   }
-});
+
+  const normalized = color.startsWith("#") ? color : `#${color}`;
+
+  return /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(
+    normalized,
+  )
+    ? normalized
+    : null;
+}
+
+export async function getLatestBotContent(): Promise<BotContent> {
+  try {
+    const result = await getDb().query<{
+      title: string | null;
+      backgroundbody: string | null;
+    }>(
+      "SELECT title, backgroundbody FROM bot_cris ORDER BY id DESC LIMIT 1",
+    );
+    const row = result.rows[0];
+
+    return {
+      title: row?.title?.trim() || null,
+      backgroundBody: normalizeHexColor(row?.backgroundbody),
+    };
+  } catch (error) {
+    console.error(
+      `Failed to fetch latest bot content from ${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}:`,
+      error,
+    );
+    return {
+      title: null,
+      backgroundBody: null,
+    };
+  }
+}
+
+export async function getLatestBotTitle(): Promise<string | null> {
+  const content = await getLatestBotContent();
+
+  return content.title;
+}
+
+export const getFirstBotTitle = getLatestBotTitle;
