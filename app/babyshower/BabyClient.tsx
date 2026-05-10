@@ -11,12 +11,14 @@ const gluten = Gluten({
 });
 
 type BabyClientProps = {
+  title: string | null;
   name: string;
   regalo: string;
   etapa: string;
 };
 
 export default function BabyClient({
+  title,
   name,
   regalo,
   etapa,
@@ -95,6 +97,13 @@ export default function BabyClient({
 
           <div className="relative">
             <div className="relative z-20">
+              {title ? (
+                <h1
+                  className={`${gluten.className} mx-auto -mb-2 w-[min(90vw,430px)] text-center text-5xl font-[900] leading-none text-[#FFF662] drop-shadow-[0_4px_0_rgba(1,36,196,0.85)] md:-mb-4 md:text-7xl`}
+                >
+                  {title}
+                </h1>
+              ) : (
                 <Image
                 className="m-auto md:-mb-6 -mb-3 z-10 md:w-[400px] w-[300px]"
                 src="/img/tituloBabyShower.png"
@@ -103,6 +112,7 @@ export default function BabyClient({
                 height={200}
                 priority
                 />
+              )}
             </div>
             <div
               className={`${gluten.className} m-auto w-fit rounded-t-lg bg-[#C22B00]/50 p-4 text-white backdrop-blur-sm drop-shadow-lg z-0 text-center`}
