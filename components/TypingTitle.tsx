@@ -10,19 +10,29 @@ export function TypingTitle({ text }: TypingTitleProps) {
   const [visibleText, setVisibleText] = useState("");
 
   useEffect(() => {
-    setVisibleText("");
-
     let index = 0;
-    const interval = window.setInterval(() => {
-      index += 1;
-      setVisibleText(text.slice(0, index));
+    let interval: number | undefined;
 
-      if (index >= text.length) {
+    const timeout = window.setTimeout(() => {
+      setVisibleText("");
+
+      interval = window.setInterval(() => {
+        index += 1;
+        setVisibleText(text.slice(0, index));
+
+        if (index >= text.length && interval !== undefined) {
+          window.clearInterval(interval);
+        }
+      }, 45);
+    }, 0);
+
+    return () => {
+      window.clearTimeout(timeout);
+
+      if (interval !== undefined) {
         window.clearInterval(interval);
       }
-    }, 45);
-
-    return () => window.clearInterval(interval);
+    };
   }, [text]);
 
   return (

@@ -52,7 +52,7 @@ export default function ContactForm() {
       setStatus("success");
       setMessage("¡Listo! Te contactaré pronto.");
       formEl.reset();
-    } catch (err) {
+    } catch {
       setStatus("error");
       setMessage("No se pudo enviar. Intenta de nuevo en unos segundos.");
     }
