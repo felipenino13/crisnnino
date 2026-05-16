@@ -23,13 +23,13 @@ function formatTime(ts: number) {
 type ChatWidgetProps = {
   title?: string;
   subtitle?: string;
-  endpoint: string; // <-- ahora obligatorio
+  endpoint: string;
   persistKey?: string;
 };
 
 export default function ChatWidget({
   title = "Cris Bot",
-  subtitle = "Consultas sobre servicios web, automatización y proyectos.",
+  subtitle = "Consultas sobre servicios web, automatizacion y proyectos.",
   endpoint,
   persistKey = "crisnnino_chat_v1",
 }: ChatWidgetProps) {
@@ -41,10 +41,11 @@ export default function ChatWidget({
   useEffect(() => {
     try {
       const raw = localStorage.getItem(persistKey);
-      if (raw) setMessages(JSON.parse(raw));
+      if (raw) {
+        setMessages(JSON.parse(raw));
+      }
     } catch {}
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [persistKey]);
 
   useEffect(() => {
     try {
@@ -53,30 +54,42 @@ export default function ChatWidget({
   }, [messages, persistKey]);
 
   useEffect(() => {
-    listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
+    listRef.current?.scrollTo({
+      top: listRef.current.scrollHeight,
+      behavior: "smooth",
+    });
   }, [messages, isSending]);
 
-  const canSend = useMemo(() => input.trim().length > 0 && !isSending, [input, isSending]);
+  const canSend = useMemo(
+    () => input.trim().length > 0 && !isSending,
+    [input, isSending],
+  );
 
   async function sendToBackend(userText: string): Promise<string> {
     const res = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      // Enviamos también el historial por si tu agent lo usa
       body: JSON.stringify({
         message: userText,
-        history: messages.slice(-10).map((m) => ({ role: m.role, content: m.content })),
+        history: messages
+          .slice(-10)
+          .map((m) => ({ role: m.role, content: m.content })),
         pageUrl: typeof window !== "undefined" ? window.location.href : "",
         ts: new Date().toISOString(),
       }),
     });
 
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
+    }
 
-    // Soporta respuesta JSON { reply: "..." } o texto plano
     const contentType = res.headers.get("content-type") || "";
     if (contentType.includes("application/json")) {
-      const data = (await res.json()) as { reply?: string; message?: string; output?: string };
+      const data = (await res.json()) as {
+        reply?: string;
+        message?: string;
+        output?: string;
+      };
       return data.reply ?? data.message ?? data.output ?? "OK";
     }
 
@@ -86,7 +99,9 @@ export default function ChatWidget({
 
   async function handleSend() {
     const text = input.trim();
-    if (!text || isSending) return;
+    if (!text || isSending) {
+      return;
+    }
 
     setInput("");
 
@@ -115,7 +130,8 @@ export default function ChatWidget({
         {
           id: uid(),
           role: "assistant",
-          content: "Ups… no pude conectar con el agente en este momento. Intenta de nuevo.",
+          content:
+            "Ups... no pude conectar con el agente en este momento. Intenta de nuevo.",
           createdAt: Date.now(),
         },
       ]);
@@ -127,7 +143,9 @@ export default function ChatWidget({
   function onKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      if (canSend) handleSend();
+      if (canSend) {
+        void handleSend();
+      }
     }
   }
 
@@ -157,12 +175,15 @@ export default function ChatWidget({
       <div ref={listRef} className="h-[420px] overflow-y-auto px-4 py-4">
         {messages.length === 0 ? (
           <div className="rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-sm text-neutral-400">
-            Escribe un mensaje para iniciar la conversación.
+            Escribe un mensaje para iniciar la conversacion.
           </div>
         ) : (
           <div className="space-y-3">
             {messages.map((m) => (
-              <div key={m.id} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+              <div
+                key={m.id}
+                className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
+              >
                 <div
                   className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
                     m.role === "user"
@@ -171,7 +192,11 @@ export default function ChatWidget({
                   }`}
                 >
                   <div className="whitespace-pre-wrap">{m.content}</div>
-                  <div className={`mt-2 text-[11px] ${m.role === "user" ? "text-black/60" : "text-neutral-400"}`}>
+                  <div
+                    className={`mt-2 text-[11px] ${
+                      m.role === "user" ? "text-black/60" : "text-neutral-400"
+                    }`}
+                  >
                     {formatTime(m.createdAt)}
                   </div>
                 </div>
@@ -181,7 +206,7 @@ export default function ChatWidget({
             {isSending && (
               <div className="flex justify-start">
                 <div className="max-w-[85%] rounded-2xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-sm text-neutral-300">
-                  Escribiendo…
+                  Escribiendo...
                 </div>
               </div>
             )}
@@ -196,13 +221,13 @@ export default function ChatWidget({
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={onKeyDown}
             rows={2}
-            placeholder="Escribe tu mensaje…"
+            placeholder="Escribe tu mensaje..."
             className="flex-1 resize-none rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-sm text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
             disabled={isSending}
           />
           <button
             type="button"
-            onClick={handleSend}
+            onClick={() => void handleSend()}
             disabled={!canSend}
             className="rounded-xl bg-white px-5 py-3 text-sm font-medium text-black transition hover:opacity-90 disabled:opacity-60"
           >
@@ -211,7 +236,7 @@ export default function ChatWidget({
         </div>
 
         <div className="mt-2 text-xs text-neutral-500">
-          Enter para enviar · Shift+Enter para salto de línea
+          Enter para enviar / Shift+Enter para salto de linea
         </div>
       </div>
     </div>

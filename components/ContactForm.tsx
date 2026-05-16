@@ -16,22 +16,20 @@ export default function ContactForm() {
     const formEl = e.currentTarget;
     const formData = new FormData(formEl);
 
-    // Honeypot anti-spam: si lo llenan, abortamos silenciosamente
+    // Honeypot anti-spam: si lo llenan, abortamos silenciosamente.
     const website = String(formData.get("website") ?? "");
     if (website.trim().length > 0) {
       setStatus("success");
-      setMessage("¡Mensaje enviado!");
+      setMessage("Mensaje enviado.");
       formEl.reset();
       return;
     }
 
-    // Payload (JSON) hacia n8n
     const payload = {
       name: String(formData.get("name") ?? ""),
       email: String(formData.get("email") ?? ""),
       phone: String(formData.get("phone") ?? ""),
       message: String(formData.get("message") ?? ""),
-      // extras opcionales (útiles para n8n)
       pageUrl: typeof window !== "undefined" ? window.location.href : "",
       submittedAt: new Date().toISOString(),
     };
@@ -50,7 +48,7 @@ export default function ContactForm() {
       }
 
       setStatus("success");
-      setMessage("¡Listo! Te contactaré pronto.");
+      setMessage("Listo. Te contactare pronto.");
       formEl.reset();
     } catch {
       setStatus("error");
@@ -65,17 +63,21 @@ export default function ContactForm() {
           Hablemos de tu proyecto
         </h1>
         <p className="text-md leading-6 text-zinc-600 dark:text-zinc-400">
-          Cuéntame qué necesitas y te respondo lo antes posible.
+          Cuentame que necesitas y te respondo lo antes posible.
         </p>
       </div>
 
-      {/* Honeypot (oculto) */}
       <div className="hidden" aria-hidden="true">
         <label htmlFor="website">Website</label>
-        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
 
-      {/* Nombre */}
       <div className="space-y-2">
         <label htmlFor="name" className="text-sm text-neutral-200">
           Nombre
@@ -92,7 +94,6 @@ export default function ContactForm() {
         />
       </div>
 
-      {/* Email */}
       <div className="space-y-2">
         <label htmlFor="email" className="text-sm text-neutral-200">
           Email
@@ -109,10 +110,9 @@ export default function ContactForm() {
         />
       </div>
 
-      {/* Teléfono */}
       <div className="space-y-2">
         <label htmlFor="phone" className="text-sm text-neutral-200">
-          Número de celular
+          Numero de celular
         </label>
         <input
           id="phone"
@@ -125,7 +125,6 @@ export default function ContactForm() {
         />
       </div>
 
-      {/* Mensaje */}
       <div className="space-y-2">
         <label htmlFor="message" className="text-sm text-neutral-200">
           Mensaje
@@ -133,7 +132,7 @@ export default function ContactForm() {
         <textarea
           id="message"
           name="message"
-          placeholder="Cuéntame sobre tu proyecto..."
+          placeholder="Cuentame sobre tu proyecto..."
           rows={5}
           className="w-full resize-none rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
           required
@@ -141,7 +140,6 @@ export default function ContactForm() {
         />
       </div>
 
-      {/* Feedback */}
       {message && (
         <div
           className={`rounded-xl border px-4 py-3 text-sm ${
@@ -154,12 +152,11 @@ export default function ContactForm() {
         </div>
       )}
 
-      {/* Botón */}
       <div className="pt-2">
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full rounded-xl bg-white px-5 py-3 text-sm font-medium text-black hover:opacity-90 transition disabled:opacity-60"
+          className="w-full rounded-xl bg-white px-5 py-3 text-sm font-medium text-black transition hover:opacity-90 disabled:opacity-60"
         >
           {status === "loading" ? "Enviando..." : "Enviar mensaje"}
         </button>
