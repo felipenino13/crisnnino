@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Cristian Nino - UX/UI, CRO y desarrollo frontend";
+export const alt = "Cristian Nino - Digital Product Creator";
 export const size = {
   width: 1200,
   height: 630,
@@ -44,7 +44,7 @@ export default function OpenGraphImage() {
               style={{
                 display: "flex",
                 fontSize: 26,
-                letterSpacing: "0.28em",
+                letterSpacing: 0,
                 textTransform: "uppercase",
                 color: "#fde68a",
               }}
@@ -63,10 +63,10 @@ export default function OpenGraphImage() {
                   fontSize: 68,
                   lineHeight: 1,
                   fontWeight: 700,
-                  letterSpacing: "-0.05em",
+                  letterSpacing: 0,
                 }}
               >
-                UX/UI, CRO y desarrollo frontend para sitios que convierten.
+                Designing, automating, and launching digital products.
               </div>
               <div
                 style={{
@@ -75,8 +75,7 @@ export default function OpenGraphImage() {
                   color: "#cbd5e1",
                 }}
               >
-                Landing pages, SEO, automatizacion y experiencias web orientadas
-                a generar contacto real.
+                UX/UI design, automation, AI, and scalable product ideas.
               </div>
             </div>
           </div>
@@ -102,10 +101,10 @@ export default function OpenGraphImage() {
                 fontSize: 24,
               }}
             >
-              <div>Landing pages</div>
-              <div>UX/UI y CRO</div>
-              <div>Next.js + React</div>
-              <div>Automatizacion con n8n</div>
+              <div>UX/UI Design</div>
+              <div>Automation & AI</div>
+              <div>Next.js Products</div>
+              <div>Growth Systems</div>
             </div>
             <div
               style={{

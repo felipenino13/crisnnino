@@ -3,16 +3,16 @@ import { HomePage } from "@/components/home/HomePage";
 import { siteUrl } from "@/components/home/content";
 
 export const metadata: Metadata = {
-  title: "Cristian Nino | UX/UI, CRO y desarrollo frontend para sitios que convierten",
+  title: "Cristian Niño | UX/UI Designer, Automation Builder & Digital Product Creator",
   description:
-    "UX/UI Designer y frontend especializado en landing pages, CRO, SEO, automatizacion y experiencias web para generar leads, oportunidades y contacto real.",
+    "I design, automate, and launch digital products that help businesses grow and ideas become reality.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Cristian Nino | UX/UI, CRO y desarrollo frontend para sitios que convierten",
+    title: "Cristian Niño | UX/UI Designer, Automation Builder & Digital Product Creator",
     description:
-      "Portafolio profesional de Cristian Nino. Diseno experiencias web, landing pages y automatizaciones orientadas a conversion.",
+      "I design, automate, and launch digital products that help businesses grow and ideas become reality.",
     url: siteUrl,
     siteName: "Cris Nino",
     images: ["/opengraph-image"],
@@ -21,20 +21,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cristian Nino | UX/UI, CRO y desarrollo frontend",
+    title: "Cristian Niño | Digital Product Creator",
     description:
-      "Portafolio profesional con proyectos, servicios y contacto para oportunidades laborales y freelance.",
+      "UX/UI, automation, AI, web products, and scalable digital business ideas.",
     images: ["/twitter-image"],
   },
   keywords: [
-    "UX UI Designer",
-    "frontend developer Colombia",
-    "landing pages",
-    "CRO",
-    "SEO",
-    "automatizacion n8n",
-    "Next.js",
-    "consultor frontend",
+    "UX/UI Designer Colombia",
+    "Digital Product Creator",
+    "Automation Builder",
+    "Next.js Developer",
+    "n8n Automation Expert",
   ],
 };
 

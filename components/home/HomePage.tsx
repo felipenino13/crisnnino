@@ -1,15 +1,11 @@
 import Script from "next/script";
-import { AboutServicesSection } from "./AboutServicesSection";
 import { ContactSection } from "./ContactSection";
-import { CredibilitySection } from "./CredibilitySection";
-import { FaqSection } from "./FaqSection";
 import { FooterSection } from "./FooterSection";
 import { HeroSection } from "./HeroSection";
-import { LabSection } from "./LabSection";
-import { ProcessSection } from "./ProcessSection";
 import { ProjectsSection } from "./ProjectsSection";
-import { StackSection } from "./StackSection";
-import { faqs, siteUrl } from "./content";
+import { WhatIDoSection } from "./WhatIDoSection";
+import { WhoIAmSection } from "./WhoIAmSection";
+import { schemaKeywords, siteUrl } from "./content";
 
 export function HomePage() {
   const jsonLd = {
@@ -17,45 +13,29 @@ export function HomePage() {
     "@graph": [
       {
         "@type": "Person",
-        name: "Cristian Nino",
+        name: "Cristian Niño",
         alternateName: "Cris Nino",
         url: siteUrl,
         image: `${siteUrl}/opengraph-image`,
         sameAs: ["https://github.com/felipenino13"],
-        jobTitle: "UX/UI Designer y Frontend Developer",
-        knowsAbout: [
-          "UX/UI",
-          "Landing pages",
-          "CRO",
-          "SEO tecnico",
-          "Next.js",
-          "React",
-          "n8n",
-          "Automatizacion",
-        ],
+        jobTitle: "UX/UI Designer, Automation Builder and Digital Product Creator",
+        knowsAbout: schemaKeywords,
       },
       {
-        "@type": "ProfessionalService",
-        name: "Cristian Nino",
+        "@type": "WebSite",
+        name: "Cristian Niño",
         url: siteUrl,
-        areaServed: "Latam",
         description:
-          "Servicios de UX/UI, desarrollo frontend, landing pages, CRO, SEO y automatizacion orientados a conversion.",
-        provider: {
-          "@type": "Person",
-          name: "Cristian Nino",
-        },
+          "Personal innovation hub for digital products, automations, and scalable business ideas.",
       },
       {
-        "@type": "FAQPage",
-        mainEntity: faqs.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.answer,
-          },
-        })),
+        "@type": "Organization",
+        name: "Cris Nino",
+        url: siteUrl,
+        founder: {
+          "@type": "Person",
+          name: "Cristian Niño",
+        },
       },
     ],
   };
@@ -68,15 +48,11 @@ export function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main className="overflow-hidden bg-[#f7f1e8] text-slate-950">
+      <main className="overflow-hidden bg-slate-50 text-slate-950">
         <HeroSection />
-        <AboutServicesSection />
+        <WhoIAmSection />
+        <WhatIDoSection />
         <ProjectsSection />
-        <LabSection />
-        <StackSection />
-        <ProcessSection />
-        <CredibilitySection />
-        <FaqSection />
         <ContactSection />
         <FooterSection />
       </main>

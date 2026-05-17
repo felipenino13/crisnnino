@@ -16,11 +16,11 @@ export default function ContactForm() {
     const formEl = e.currentTarget;
     const formData = new FormData(formEl);
 
-    // Honeypot anti-spam: si lo llenan, abortamos silenciosamente.
+    // Honeypot anti-spam: silently accept bot submissions.
     const website = String(formData.get("website") ?? "");
     if (website.trim().length > 0) {
       setStatus("success");
-      setMessage("Mensaje enviado.");
+      setMessage("Message sent.");
       formEl.reset();
       return;
     }
@@ -50,26 +50,26 @@ export default function ContactForm() {
       }
 
       setStatus("success");
-      setMessage("Listo. Te contactare pronto.");
+      setMessage("Thanks. I will get back to you soon.");
       formEl.reset();
     } catch {
       setStatus("error");
-      setMessage("No se pudo enviar. Intenta de nuevo en unos segundos.");
+      setMessage("The message could not be sent. Please try again in a moment.");
     }
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="text-left">
-        <p className="text-sm font-semibold uppercase tracking-[0.28em] text-amber-300/80">
-          Formulario
+        <p className="text-sm font-semibold uppercase text-amber-300/80">
+          Contact
         </p>
-        <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-[-0.03em] text-white">
-          Hablemos de tu proyecto
+        <h3 className="mt-3 text-2xl font-semibold leading-tight text-white">
+          Tell me what you are building
         </h3>
         <p className="mt-3 text-sm leading-6 text-slate-300">
-          Cuentame contexto, objetivo y tiempos. Si prefieres, tambien puedes
-          escribirme directo a{" "}
+          Share the context, goal, and timeline. You can also email me directly
+          at{" "}
           <a
             href="mailto:hola@crisnnino.com"
             className="font-medium text-amber-200 underline decoration-amber-200/40 underline-offset-4"
@@ -93,15 +93,15 @@ export default function ContactForm() {
 
       <div className="space-y-2">
         <label htmlFor="name" className="text-sm text-neutral-200">
-          Nombre
+          Name
         </label>
         <input
           id="name"
           name="name"
           type="text"
           autoComplete="name"
-          placeholder="Tu nombre"
-          className="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
+          placeholder="Your name"
+          className="w-full rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
           required
           disabled={status === "loading"}
         />
@@ -116,8 +116,8 @@ export default function ContactForm() {
           name="email"
           type="email"
           autoComplete="email"
-          placeholder="tu@email.com"
-          className="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
+          placeholder="you@example.com"
+          className="w-full rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
           required
           disabled={status === "loading"}
         />
@@ -126,7 +126,7 @@ export default function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
           <label htmlFor="phone" className="text-sm text-neutral-200">
-            Numero de celular
+            Phone number
           </label>
           <input
             id="phone"
@@ -134,65 +134,65 @@ export default function ContactForm() {
             type="tel"
             autoComplete="tel"
             placeholder="+57 300 000 0000"
-            className="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
+            className="w-full rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
             disabled={status === "loading"}
           />
         </div>
 
         <div className="space-y-2">
           <label htmlFor="projectType" className="text-sm text-neutral-200">
-            Tipo de proyecto
+            Project type
           </label>
           <select
             id="projectType"
             name="projectType"
-            className="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 outline-none focus:border-neutral-600"
+            className="w-full rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 outline-none focus:border-neutral-600"
             defaultValue=""
             disabled={status === "loading"}
           >
             <option value="" disabled>
-              Selecciona una opcion
+              Select an option
             </option>
-            <option value="landing-page">Landing page o sitio web</option>
-            <option value="redesign">Rediseno UX/UI</option>
-            <option value="automation">Automatizacion con n8n</option>
-            <option value="frontend">Desarrollo frontend</option>
-            <option value="consulting">Consultoria o colaboracion</option>
+            <option value="digital-product">Digital product or MVP</option>
+            <option value="web-platform">Website or landing system</option>
+            <option value="automation">Automation or AI workflow</option>
+            <option value="ux-ui">UX/UI design</option>
+            <option value="consulting">Consulting or collaboration</option>
           </select>
         </div>
       </div>
 
       <div className="space-y-2">
         <label htmlFor="budget" className="text-sm text-neutral-200">
-          Presupuesto estimado
+          Estimated budget
         </label>
         <select
           id="budget"
           name="budget"
-          className="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 outline-none focus:border-neutral-600"
+          className="w-full rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 outline-none focus:border-neutral-600"
           defaultValue=""
           disabled={status === "loading"}
         >
           <option value="" disabled>
-            No estoy seguro aun
+            Not sure yet
           </option>
-          <option value="under-1000">Menos de USD 1.000</option>
-          <option value="1000-3000">USD 1.000 - 3.000</option>
-          <option value="3000-6000">USD 3.000 - 6.000</option>
-          <option value="over-6000">Mas de USD 6.000</option>
+          <option value="under-1000">Under USD 1,000</option>
+          <option value="1000-3000">USD 1,000 - 3,000</option>
+          <option value="3000-6000">USD 3,000 - 6,000</option>
+          <option value="over-6000">Over USD 6,000</option>
         </select>
       </div>
 
       <div className="space-y-2">
         <label htmlFor="message" className="text-sm text-neutral-200">
-          Que necesitas resolver
+          What do you want to build?
         </label>
         <textarea
           id="message"
           name="message"
-          placeholder="Ejemplo: necesito una landing para generar leads, mejorar conversion o automatizar el flujo de contacto."
+          placeholder="Example: I need to validate a product idea, automate a workflow, or launch a scalable web experience."
           rows={5}
-          className="w-full resize-none rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
+          className="w-full resize-none rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
           required
           disabled={status === "loading"}
         />
@@ -201,7 +201,7 @@ export default function ContactForm() {
       {message && (
         <div
           aria-live="polite"
-          className={`rounded-xl border px-4 py-3 text-sm ${
+          className={`rounded-lg border px-4 py-3 text-sm ${
             status === "success"
               ? "border-emerald-600/40 text-emerald-200"
               : "border-red-600/40 text-red-200"
@@ -215,12 +215,12 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full rounded-xl bg-white px-5 py-3 text-sm font-medium text-black transition hover:opacity-90 disabled:opacity-60"
+          className="w-full rounded-lg bg-white px-5 py-3 text-sm font-medium text-black transition hover:opacity-90 disabled:opacity-60"
         >
-          {status === "loading" ? "Enviando..." : "Solicitar conversacion"}
+          {status === "loading" ? "Sending..." : "Contact Me"}
         </button>
         <p className="mt-3 text-xs leading-5 text-slate-400">
-          Respondo consultas laborales, proyectos freelance y colaboraciones.
+          I respond to product, automation, consulting, and collaboration inquiries.
         </p>
       </div>
     </form>

@@ -1,39 +1,38 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, GitBranch, MessageCircleMore } from "lucide-react";
-import { TypingTitle } from "@/components/TypingTitle";
-import { navigation, stack, trustSignals } from "./content";
+import { ArrowRight, GitBranch, MessageCircleMore } from "lucide-react";
+import { hero, navigation } from "./content";
 
 export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[88vh] overflow-hidden bg-slate-950 px-6 pb-12 pt-8 text-stone-100 sm:px-10 lg:px-16"
+      className="relative min-h-[92vh] overflow-hidden bg-neutral-950 px-6 pb-14 pt-8 text-stone-100 sm:px-10 lg:px-16"
     >
       <Image
-        src="/img/hero-portfolio-visual.png"
+        src="/img/digital-product-creator-visual.png"
         alt=""
         fill
         priority
         sizes="100vw"
-        className="object-cover object-center opacity-55"
+        className="object-cover object-center opacity-72"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,23,42,0.96)_0%,rgba(15,23,42,0.86)_42%,rgba(15,23,42,0.46)_78%,rgba(15,23,42,0.38)_100%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.16)_0%,rgba(15,23,42,0.18)_68%,#f7f1e8_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,10,10,0.94)_0%,rgba(10,10,10,0.82)_44%,rgba(10,10,10,0.38)_78%,rgba(10,10,10,0.2)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,10,0.12)_0%,rgba(10,10,10,0.16)_70%,#f8fafc_100%)]" />
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(88vh-5rem)] max-w-6xl flex-col">
+      <div className="relative z-10 mx-auto flex min-h-[calc(92vh-5rem)] max-w-6xl flex-col">
         <header className="flex flex-col gap-6 border-b border-white/10 pb-8 md:flex-row md:items-center md:justify-between">
           <div className="max-w-xl">
-            <p className="text-sm uppercase tracking-[0.35em] text-amber-200/80">
-              Cristian Nino
+            <p className="text-sm uppercase tracking-normal text-amber-200/80">
+              Cristian Niño
             </p>
             <p className="mt-2 text-sm text-slate-300">
-              UX/UI, landing pages, CRO, SEO, automatizacion y desarrollo frontend.
+              UX/UI Designer, Automation Builder & Digital Product Creator.
             </p>
           </div>
 
           <nav
-            aria-label="Navegacion principal"
+            aria-label="Primary navigation"
             className="flex flex-wrap items-center gap-3 text-sm"
           >
             {navigation.map((item) => (
@@ -53,70 +52,47 @@ export function HeroSection() {
               GitHub
             </Link>
             <Link
-              href="#contacto"
+              href="#contact"
               className="inline-flex items-center gap-2 rounded-full bg-amber-300 px-4 py-2 font-medium text-slate-950 transition hover:bg-amber-200"
             >
-              Trabajemos juntos
+              Let&apos;s Work Together
               <ArrowRight className="h-4 w-4" />
             </Link>
           </nav>
         </header>
 
-        <div className="grid flex-1 gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-          <div>
-            <div className="inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm text-emerald-100">
-              Disponible para oportunidades laborales, freelance y consultoria
-            </div>
-            <div className="mt-8 text-balance">
-              <TypingTitle text="Cristian Nino" />
-            </div>
+        <div className="flex flex-1 items-center py-14">
+          <div className="max-w-4xl">
+            <p className="inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm text-emerald-100">
+              Personal innovation hub for web products, automations, and AI experiments
+            </p>
+            <h1 className="mt-8 max-w-5xl text-5xl font-semibold leading-[0.98] text-white sm:text-7xl lg:text-8xl">
+              {hero.headline}
+            </h1>
             <p className="mt-8 max-w-2xl text-xl leading-8 text-slate-200">
-              Diseno y construyo experiencias web que convierten trafico en
-              conversaciones reales: landing pages, CRO, SEO, automatizacion y
-              frontend para equipos que necesitan claridad y velocidad.
+              {hero.subheadline}
+            </p>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
+              {hero.positioning}
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="#proyectos"
+                href="#projects"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 font-medium text-slate-950 transition hover:bg-slate-200"
               >
-                Ver proyectos
+                View My Projects
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="#contacto"
+                href="#contact"
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 font-medium text-white transition hover:border-white/40 hover:bg-white/5"
               >
-                Hablemos de tu proyecto
+                Let&apos;s Work Together
                 <MessageCircleMore className="h-4 w-4" />
               </Link>
             </div>
           </div>
-
-          <aside className="rounded-[1.5rem] border border-white/10 bg-slate-950/55 p-6 backdrop-blur">
-            <p className="text-sm uppercase tracking-[0.3em] text-amber-200/70">
-              Propuesta de valor
-            </p>
-            <div className="mt-6 space-y-4 text-sm leading-7 text-slate-200">
-              {trustSignals.map((item) => (
-                <div key={item} className="flex gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-amber-200" />
-                  <p>{item}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-7 flex flex-wrap gap-2">
-              {stack.slice(0, 6).map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </aside>
         </div>
       </div>
     </section>

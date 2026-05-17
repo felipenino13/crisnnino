@@ -20,7 +20,7 @@ export function SectionHeading({
 
   return (
     <div className={className}>
-      <p className={`text-sm font-semibold uppercase tracking-[0.3em] ${eyebrowClass}`}>
+      <p className={`text-sm font-semibold uppercase tracking-normal ${eyebrowClass}`}>
         {eyebrow}
       </p>
       <h2 className={`mt-4 text-3xl font-semibold ${titleClass} sm:text-5xl`}>

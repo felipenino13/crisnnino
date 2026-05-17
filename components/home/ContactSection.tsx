@@ -4,34 +4,32 @@ import ContactForm from "@/components/ContactForm";
 
 export function ContactSection() {
   return (
-    <section id="contacto" className="px-6 pb-14 pt-6 sm:px-10 lg:px-16">
+    <section id="contact" className="bg-slate-50 px-6 py-24 sm:px-10 lg:px-16">
       <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.75fr_1.25fr]">
-        <div className="rounded-2xl bg-[#c85632] p-8 text-white shadow-[0_30px_80px_rgba(200,86,50,0.22)]">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-100/80">
-            Contacto
+        <div className="rounded-lg bg-neutral-950 p-8 text-white shadow-[0_30px_80px_rgba(15,23,42,0.18)]">
+          <p className="text-sm font-semibold uppercase tracking-normal text-amber-200/80">
+            Contact
           </p>
           <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
-            Si buscas a alguien que una diseno, conversion y ejecucion tecnica,
-            conversemos.
+            Let&apos;s Build Something Great
           </h2>
-          <p className="mt-5 text-base leading-7 text-orange-50/90">
-            Este sitio esta construido para facilitar una decision: entender
-            rapido si encajo con tu necesidad y dejar un camino corto para
-            hablar.
+          <p className="mt-5 text-base leading-7 text-slate-300">
+            Whether you need a new website, automation, or a complete digital
+            product, I&apos;d love to help.
           </p>
 
-          <div className="mt-8 space-y-4 text-sm leading-7 text-orange-50/90">
+          <div className="mt-8 space-y-4 text-sm leading-7 text-slate-300">
             <div className="flex items-start gap-3">
               <BriefcaseBusiness className="mt-1 h-5 w-5 shrink-0" />
               <p>
-                Proyectos ideales: landing pages, redisenos UX/UI, optimizacion
-                de conversion, desarrollo frontend y automatizaciones conectadas.
+                Ideal conversations: product ideas, web platforms, MVPs,
+                AI-powered workflows, landing systems, automation, and growth.
               </p>
             </div>
             <div className="flex items-start gap-3">
               <Mail className="mt-1 h-5 w-5 shrink-0" />
               <p>
-                Correo directo:{" "}
+                Direct email:{" "}
                 <a
                   href="mailto:hola@crisnnino.com"
                   className="underline decoration-white/50 underline-offset-4"
@@ -43,7 +41,7 @@ export function ContactSection() {
             <div className="flex items-start gap-3">
               <GitBranch className="mt-1 h-5 w-5 shrink-0" />
               <p>
-                Tambien puedes revisar codigo y experimentos en{" "}
+                You can also review code and experiments at{" "}
                 <Link
                   href="https://github.com/felipenino13"
                   className="underline decoration-white/50 underline-offset-4"
@@ -56,14 +54,14 @@ export function ContactSection() {
             <div className="flex items-start gap-3">
               <FileText className="mt-1 h-5 w-5 shrink-0" />
               <p>
-                Si vienes desde reclutamiento o una vacante, puedo compartir
-                experiencia, stack y casos relevantes de forma mas puntual.
+                If you are hiring, I can share experience, stack details, and
+                relevant product work in a more focused format.
               </p>
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl bg-slate-950 p-6 shadow-[0_30px_80px_rgba(15,23,42,0.2)] sm:p-8">
+        <div className="rounded-lg bg-slate-950 p-6 shadow-[0_30px_80px_rgba(15,23,42,0.2)] sm:p-8">
           <ContactForm />
         </div>
       </div>

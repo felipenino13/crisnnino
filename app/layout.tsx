@@ -21,34 +21,32 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.crisnnino.com"),
   title: {
-    default: "Cristian Nino | UX/UI, CRO, automatizacion y desarrollo frontend",
+    default: "Cristian Niño | UX/UI Designer, Automation Builder & Digital Product Creator",
     template: "%s | Cris Nino",
   },
   description:
-    "Portafolio profesional de Cristian Nino. UX/UI, landing pages, CRO, SEO, automatizacion y desarrollo frontend para convertir visitas en oportunidades.",
+    "I design, automate, and launch digital products that help businesses grow and ideas become reality.",
   applicationName: "Cris Nino",
   category: "technology",
   authors: [{ name: "Cris Nino", url: "https://www.crisnnino.com" }],
   creator: "Cris Nino",
   publisher: "Cris Nino",
   keywords: [
-    "Cristian Nino",
+    "Cristian Niño",
     "UX UI Designer Colombia",
-    "desarrollo frontend",
-    "landing pages",
-    "CRO",
-    "automatizacion n8n",
-    "Next.js portfolio",
-    "SEO tecnico",
+    "Digital Product Creator",
+    "Automation Builder",
+    "Next.js Developer",
+    "n8n Automation Expert",
   ],
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Cristian Nino | UX/UI, CRO, automatizacion y desarrollo frontend",
+    title: "Cristian Niño | UX/UI Designer, Automation Builder & Digital Product Creator",
     description:
-      "Diseno experiencias web y landing pages orientadas a conversion para equipos, empresas y proyectos digitales.",
+      "I design, automate, and launch digital products that help businesses grow and ideas become reality.",
     url: "https://www.crisnnino.com",
     siteName: "Cris Nino",
     images: ["/opengraph-image"],
@@ -57,9 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cristian Nino | UX/UI, CRO y desarrollo frontend",
+    title: "Cristian Niño | Digital Product Creator",
     description:
-      "Portafolio profesional para reclutadores, clientes y equipos que buscan diseno web con foco en resultados.",
+      "UX/UI, automation, AI, web products, and scalable digital business ideas.",
     images: ["/twitter-image"],
   },
 };
