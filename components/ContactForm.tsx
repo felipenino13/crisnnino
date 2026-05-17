@@ -29,6 +29,8 @@ export default function ContactForm() {
       name: String(formData.get("name") ?? ""),
       email: String(formData.get("email") ?? ""),
       phone: String(formData.get("phone") ?? ""),
+      projectType: String(formData.get("projectType") ?? ""),
+      budget: String(formData.get("budget") ?? ""),
       message: String(formData.get("message") ?? ""),
       pageUrl: typeof window !== "undefined" ? window.location.href : "",
       submittedAt: new Date().toISOString(),
@@ -58,12 +60,23 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="text-center">
-        <h1 className="text-xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+      <div className="text-left">
+        <p className="text-sm font-semibold uppercase tracking-[0.28em] text-amber-300/80">
+          Formulario
+        </p>
+        <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-[-0.03em] text-white">
           Hablemos de tu proyecto
-        </h1>
-        <p className="text-md leading-6 text-zinc-600 dark:text-zinc-400">
-          Cuentame que necesitas y te respondo lo antes posible.
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-slate-300">
+          Cuentame contexto, objetivo y tiempos. Si prefieres, tambien puedes
+          escribirme directo a{" "}
+          <a
+            href="mailto:hola@crisnnino.com"
+            className="font-medium text-amber-200 underline decoration-amber-200/40 underline-offset-4"
+          >
+            hola@crisnnino.com
+          </a>
+          .
         </p>
       </div>
 
@@ -110,29 +123,74 @@ export default function ContactForm() {
         />
       </div>
 
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div className="space-y-2">
+          <label htmlFor="phone" className="text-sm text-neutral-200">
+            Numero de celular
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            placeholder="+57 300 000 0000"
+            className="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
+            disabled={status === "loading"}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="projectType" className="text-sm text-neutral-200">
+            Tipo de proyecto
+          </label>
+          <select
+            id="projectType"
+            name="projectType"
+            className="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 outline-none focus:border-neutral-600"
+            defaultValue=""
+            disabled={status === "loading"}
+          >
+            <option value="" disabled>
+              Selecciona una opcion
+            </option>
+            <option value="landing-page">Landing page o sitio web</option>
+            <option value="redesign">Rediseno UX/UI</option>
+            <option value="automation">Automatizacion con n8n</option>
+            <option value="frontend">Desarrollo frontend</option>
+            <option value="consulting">Consultoria o colaboracion</option>
+          </select>
+        </div>
+      </div>
+
       <div className="space-y-2">
-        <label htmlFor="phone" className="text-sm text-neutral-200">
-          Numero de celular
+        <label htmlFor="budget" className="text-sm text-neutral-200">
+          Presupuesto estimado
         </label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          autoComplete="tel"
-          placeholder="+57 300 000 0000"
-          className="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
+        <select
+          id="budget"
+          name="budget"
+          className="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 outline-none focus:border-neutral-600"
+          defaultValue=""
           disabled={status === "loading"}
-        />
+        >
+          <option value="" disabled>
+            No estoy seguro aun
+          </option>
+          <option value="under-1000">Menos de USD 1.000</option>
+          <option value="1000-3000">USD 1.000 - 3.000</option>
+          <option value="3000-6000">USD 3.000 - 6.000</option>
+          <option value="over-6000">Mas de USD 6.000</option>
+        </select>
       </div>
 
       <div className="space-y-2">
         <label htmlFor="message" className="text-sm text-neutral-200">
-          Mensaje
+          Que necesitas resolver
         </label>
         <textarea
           id="message"
           name="message"
-          placeholder="Cuentame sobre tu proyecto..."
+          placeholder="Ejemplo: necesito una landing para generar leads, mejorar conversion o automatizar el flujo de contacto."
           rows={5}
           className="w-full resize-none rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
           required
@@ -142,6 +200,7 @@ export default function ContactForm() {
 
       {message && (
         <div
+          aria-live="polite"
           className={`rounded-xl border px-4 py-3 text-sm ${
             status === "success"
               ? "border-emerald-600/40 text-emerald-200"
@@ -158,8 +217,11 @@ export default function ContactForm() {
           disabled={status === "loading"}
           className="w-full rounded-xl bg-white px-5 py-3 text-sm font-medium text-black transition hover:opacity-90 disabled:opacity-60"
         >
-          {status === "loading" ? "Enviando..." : "Enviar mensaje"}
+          {status === "loading" ? "Enviando..." : "Solicitar conversacion"}
         </button>
+        <p className="mt-3 text-xs leading-5 text-slate-400">
+          Respondo consultas laborales, proyectos freelance y colaboraciones.
+        </p>
       </div>
     </form>
   );

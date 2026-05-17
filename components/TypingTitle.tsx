@@ -7,9 +7,17 @@ type TypingTitleProps = {
 };
 
 export function TypingTitle({ text }: TypingTitleProps) {
-  const [visibleText, setVisibleText] = useState("");
+  const [visibleText, setVisibleText] = useState(text);
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReducedMotion) {
+      return;
+    }
+
     let index = 0;
     let interval: number | undefined;
 
@@ -37,13 +45,13 @@ export function TypingTitle({ text }: TypingTitleProps) {
 
   return (
     <h1
-      className="max-w-3xl text-5xl font-semibold leading-tight sm:text-7xl"
+      className="max-w-4xl text-5xl font-semibold leading-[0.95] sm:text-7xl lg:text-[5.5rem]"
       aria-label={text}
     >
       <span aria-hidden="true">{visibleText}</span>
       <span
         aria-hidden="true"
-        className="ml-1 inline-block h-[0.9em] w-[0.08em] translate-y-[0.08em] animate-pulse bg-current"
+        className="ml-1 inline-block h-[0.88em] w-[0.08em] translate-y-[0.08em] animate-pulse rounded-full bg-current"
       />
     </h1>
   );

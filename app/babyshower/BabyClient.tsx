@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Gift, MapPin, X } from "lucide-react";
-import { Gluten } from "next/font/google";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { Gluten } from "next/font/google";
+import { Gift, MapPin, X } from "lucide-react";
 
 const gluten = Gluten({
   subsets: ["latin"],
@@ -25,7 +25,6 @@ export default function BabyClient({
 }: BabyClientProps) {
   const [openGiftModal, setOpenGiftModal] = useState(false);
   const [openMapModal, setOpenMapModal] = useState(false);
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
 
@@ -33,41 +32,41 @@ export default function BabyClient({
     const confirmed = localStorage.getItem("confirmed");
 
     if (confirmed === "true") {
-        setIsConfirmed(true);
+      setIsConfirmed(true);
     }
-    }, []);
+  }, []);
 
-  const handleConfirmAttendance = async () => {
-  try {
-    setIsSubmitting(true);
+  async function handleConfirmAttendance() {
+    try {
+      setIsSubmitting(true);
 
-    const response = await fetch("/api/confirm-attendance", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        etapa,
-        regalo,
-        source: "babyshower",
-        confirmedAt: new Date().toISOString(),
-      }),
-    });
+      const response = await fetch("/api/confirm-attendance", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          etapa,
+          regalo,
+          source: "babyshower",
+          confirmedAt: new Date().toISOString(),
+        }),
+      });
 
-    if (!response.ok) {
-      throw new Error("No se pudo confirmar la asistencia");
+      if (!response.ok) {
+        throw new Error("No se pudo confirmar la asistencia");
+      }
+
+      setIsConfirmed(true);
+      localStorage.setItem("confirmed", "true");
+    } catch (error) {
+      console.error("Error al confirmar asistencia:", error);
+      alert("Hubo un problema al confirmar tu asistencia.");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setIsConfirmed(true);
-    localStorage.setItem("confirmed", "true");
-  } catch (error) {
-    console.error("Error al confirmar asistencia:", error);
-    alert("Hubo un problema al confirmar tu asistencia.");
-  } finally {
-    setIsSubmitting(false);
   }
-};
 
   return (
     <div className="relative h-dvh w-full overflow-hidden">
@@ -79,7 +78,7 @@ export default function BabyClient({
         loop
         playsInline
         preload="metadata"
-        className="absolute top-0 left-0 h-full w-full object-cover"
+        className="absolute left-0 top-0 h-full w-full object-cover"
       />
 
       <div className="relative z-10 flex h-full items-center justify-center">
@@ -105,38 +104,40 @@ export default function BabyClient({
                 </h1>
               ) : (
                 <Image
-                className="m-auto md:-mb-6 -mb-3 z-10 md:w-[400px] w-[300px]"
-                src="/img/tituloBabyShower.png"
-                alt="Título baby shower"
-                width={400}
-                height={200}
-                priority
+                  className="z-10 m-auto -mb-3 w-[300px] md:-mb-6 md:w-[400px]"
+                  src="/img/tituloBabyShower.png"
+                  alt="Titulo baby shower"
+                  width={400}
+                  height={200}
+                  priority
                 />
               )}
             </div>
+
             <div
-              className={`${gluten.className} m-auto w-fit rounded-t-lg bg-[#C22B00]/50 p-4 text-white backdrop-blur-sm drop-shadow-lg z-0 text-center`}
+              className={`${gluten.className} z-0 m-auto w-fit rounded-t-lg bg-[#C22B00]/50 p-4 text-center text-white backdrop-blur-sm drop-shadow-lg`}
             >
               <p className="text-center text-4xl font-[700] tracking-tight text-[#FFF662]">
                 {name}
               </p>
               <p className="text-center text-xl">
-                Acompañame a celebrar este día especial
+                Acompaname a celebrar este dia especial
               </p>
+
               {!isConfirmed ? (
                 <button
-                    type="button"
-                    onClick={handleConfirmAttendance}
-                    disabled={isSubmitting}
-                    className={`${gluten.className} mt-3 mb-3 w-fit rounded-xl bg-[#05C8F7] p-3 text-black disabled:cursor-not-allowed disabled:opacity-50`}
+                  type="button"
+                  onClick={handleConfirmAttendance}
+                  disabled={isSubmitting}
+                  className={`${gluten.className} mb-3 mt-3 w-fit rounded-xl bg-[#05C8F7] p-3 text-black disabled:cursor-not-allowed disabled:opacity-50`}
                 >
-                    {isSubmitting ? "Confirmando..." : "Confirmar asistencia"}
+                  {isSubmitting ? "Confirmando..." : "Confirmar asistencia"}
                 </button>
-                ) : (
-                <p className={`${gluten.className} mt-3 mb-3 text-center text-white`}>
-                    Gracias por confirmar tu asistencia 💛
+              ) : (
+                <p className={`${gluten.className} mb-3 mt-3 text-center text-white`}>
+                  Gracias por confirmar tu asistencia
                 </p>
-                )}
+              )}
             </div>
           </div>
         </div>
@@ -152,7 +153,9 @@ export default function BabyClient({
         >
           <div>
             <Gift className="m-auto h-7 w-7 text-[#BA2800]/90" />
-            <p className="m-auto font-[700] text-[#BA2800]/70 text-sm">Regalo</p>
+            <p className="m-auto text-sm font-[700] text-[#BA2800]/70">
+              Regalo
+            </p>
           </div>
         </button>
 
@@ -163,7 +166,9 @@ export default function BabyClient({
         >
           <div>
             <MapPin className="m-auto h-7 w-7 text-[#BA2800]/90" />
-            <p className="m-auto font-[700] text-[#BA2800]/70 text-sm">Ubicación</p>
+            <p className="m-auto text-sm font-[700] text-[#BA2800]/70">
+              Ubicacion
+            </p>
           </div>
         </button>
       </div>
@@ -174,7 +179,7 @@ export default function BabyClient({
             <button
               type="button"
               onClick={() => setOpenGiftModal(false)}
-              className="absolute top-4 right-4 rounded-full p-1 text-gray-600 transition hover:bg-gray-100"
+              className="absolute right-4 top-4 rounded-full p-1 text-gray-600 transition hover:bg-gray-100"
             >
               <X className="h-5 w-5" />
             </button>
@@ -185,10 +190,12 @@ export default function BabyClient({
               Regalo
             </h2>
 
-            <p className={`${gluten.className} mb-4 text-[#000000] text-center leading-relaxed text-gray-700`}>
-              Para nosotros es muy importante tu compañía más que un regalo,
-              pero si quieres tener un detalle puedes traer pañales etapa{" "}
-              <span className="font-semibold">{etapa}</span>, pañitos y{" "}
+            <p
+              className={`${gluten.className} mb-4 text-center leading-relaxed text-gray-700`}
+            >
+              Para nosotros es muy importante tu compania mas que un regalo,
+              pero si quieres tener un detalle puedes traer panales etapa{" "}
+              <span className="font-semibold">{etapa}</span>, panitos y{" "}
               <span className="font-semibold">{regalo}</span>.
             </p>
           </div>
@@ -201,37 +208,46 @@ export default function BabyClient({
             <button
               type="button"
               onClick={() => setOpenMapModal(false)}
-              className="absolute top-4 right-4 rounded-full p-1 text-gray-600 transition hover:bg-gray-100"
+              className="absolute right-4 top-4 rounded-full p-1 text-gray-600 transition hover:bg-gray-100"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <h2 className={`${gluten.className} mb-4 text-center text-2xl font-bold text-[#BA2800]`}>
-              ¿Cómo llegar?
+            <h2
+              className={`${gluten.className} mb-4 text-center text-2xl font-bold text-[#BA2800]`}
+            >
+              Como llegar?
             </h2>
-            <p className={`${gluten.className} mb-4 text-[#000000] text-center`}>
-                Casa de retiros hermanas Franciscanas<br></br>
-                Cra. 28b #13-12, Funza, Cundinamarca
+            <p className={`${gluten.className} mb-4 text-center text-black`}>
+              Casa de retiros hermanas Franciscanas
+              <br />
+              Cra. 28b #13-12, Funza, Cundinamarca
             </p>
 
             <button
               type="button"
               onClick={() =>
                 window.open(
-                  "https://www.google.com/maps?q=4.7300259,-74.2239493", "_blank")
+                  "https://www.google.com/maps?q=4.7300259,-74.2239493",
+                  "_blank",
+                )
               }
-              className={`${gluten.className} mb-3 w-full rounded-xl bg-[#0119B9] p-3 text-white`}>
-                Abrir en Google Maps
+              className={`${gluten.className} mb-3 w-full rounded-xl bg-[#0119B9] p-3 text-white`}
+            >
+              Abrir en Google Maps
             </button>
 
             <button
               type="button"
               onClick={() =>
                 window.open(
-                  "https://waze.com/ul?ll=4.7300259,-74.2239493&navigate=yes", "_blank")
+                  "https://waze.com/ul?ll=4.7300259,-74.2239493&navigate=yes",
+                  "_blank",
+                )
               }
-              className={`${gluten.className} mb-3 w-full rounded-xl bg-[#05C8F7] p-3 text-black`}>
-                Abrir en Waze
+              className={`${gluten.className} mb-3 w-full rounded-xl bg-[#05C8F7] p-3 text-black`}
+            >
+              Abrir en Waze
             </button>
           </div>
         </div>
