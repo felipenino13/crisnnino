@@ -4,20 +4,20 @@ import { SectionHeading } from "./SectionHeading";
 export function WhatIDoSection() {
   return (
     <section
-      id="what-i-do"
+      id="que-hago"
       className="bg-[radial-gradient(circle_at_20%_0%,rgba(103,232,249,0.13),transparent_34%),linear-gradient(180deg,#08111f_0%,#05060f_100%)] px-6 py-24 sm:px-10 lg:px-16"
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             className="max-w-2xl"
-            eyebrow="What I Do"
-            title="Design, automation, and product execution under one roof."
+            eyebrow="Qué hago"
+            title="Diseño, automatización y ejecución de producto en un solo flujo."
           />
           <p className="max-w-xl text-lg leading-8 text-cyan-100/72">
-            I help teams and founders move from raw idea to shipped digital
-            product, combining strategy, UX, frontend development, automation,
-            AI, SEO, and growth thinking.
+            Ayudo a equipos, fundadores y empresas a pasar de una idea inicial a
+            un producto digital publicado, combinando estrategia, UX, frontend,
+            automatización, IA, SEO y growth.
           </p>
         </div>
 

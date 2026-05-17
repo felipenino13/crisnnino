@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Cristian Nino - Digital Product Creator";
+export const alt = "Cristian Niño - Creador de productos digitales";
 export const size = {
   width: 1200,
   height: 630,
@@ -49,7 +49,7 @@ export default function OpenGraphImage() {
                 color: "#fde68a",
               }}
             >
-              Cristian Nino
+              Cristian Niño
             </div>
             <div
               style={{
@@ -66,7 +66,7 @@ export default function OpenGraphImage() {
                   letterSpacing: 0,
                 }}
               >
-                Designing, automating, and launching digital products.
+                Diseño, automatizo y lanzo productos digitales.
               </div>
               <div
                 style={{
@@ -75,7 +75,7 @@ export default function OpenGraphImage() {
                   color: "#cbd5e1",
                 }}
               >
-                UX/UI design, automation, AI, and scalable product ideas.
+                UX/UI, automatización, IA y productos escalables.
               </div>
             </div>
           </div>
@@ -101,10 +101,10 @@ export default function OpenGraphImage() {
                 fontSize: 24,
               }}
             >
-              <div>UX/UI Design</div>
-              <div>Automation & AI</div>
-              <div>Next.js Products</div>
-              <div>Growth Systems</div>
+              <div>Diseño UX/UI</div>
+              <div>Automatizacion e IA</div>
+              <div>Productos Next.js</div>
+              <div>Sistemas de growth</div>
             </div>
             <div
               style={{

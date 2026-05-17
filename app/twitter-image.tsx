@@ -1,7 +1,7 @@
 import OpenGraphImage from "./opengraph-image";
 
 export const runtime = "edge";
-export const alt = "Cristian Nino - Digital Product Creator";
+export const alt = "Cristian Niño - Creador de productos digitales";
 export const size = {
   width: 1200,
   height: 630,

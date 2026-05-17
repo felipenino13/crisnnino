@@ -14,11 +14,11 @@ export function HomePage() {
       {
         "@type": "Person",
         name: "Cristian Niño",
-        alternateName: "Cris Nino",
+        alternateName: "Cris Niño",
         url: siteUrl,
         image: `${siteUrl}/opengraph-image`,
         sameAs: ["https://github.com/felipenino13"],
-        jobTitle: "UX/UI Designer, Automation Builder and Digital Product Creator",
+        jobTitle: "UX/UI Designer, Automation Builder y Digital Product Creator",
         knowsAbout: schemaKeywords,
       },
       {
@@ -26,11 +26,11 @@ export function HomePage() {
         name: "Cristian Niño",
         url: siteUrl,
         description:
-          "Personal innovation hub for digital products, automations, and scalable business ideas.",
+          "Hub personal de productos digitales, automatizaciones e ideas de negocio escalables.",
       },
       {
         "@type": "Organization",
-        name: "Cris Nino",
+        name: "Cris Niño",
         url: siteUrl,
         founder: {
           "@type": "Person",

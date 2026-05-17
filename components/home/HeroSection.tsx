@@ -25,15 +25,15 @@ export function HeroSection() {
         <header className="flex flex-col gap-6 border-b border-cyan-300/20 pb-8 md:flex-row md:items-center md:justify-between">
           <div className="max-w-xl">
             <p className="text-sm uppercase tracking-normal text-cyan-200">
-              Cristian Nino
+              Cristian Niño
             </p>
             <p className="mt-2 text-sm text-cyan-100/70">
-              UX/UI Designer, Automation Builder & Digital Product Creator.
+              UX/UI Designer, Automation Builder y Digital Product Creator.
             </p>
           </div>
 
           <nav
-            aria-label="Primary navigation"
+            aria-label="Navegacion principal"
             className="flex flex-wrap items-center gap-3 text-sm"
           >
             {navigation.map((item) => (
@@ -53,10 +53,10 @@ export function HeroSection() {
               GitHub
             </Link>
             <Link
-              href="#contact"
+              href="#contacto"
               className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-4 py-2 font-medium text-slate-950 shadow-[0_0_32px_rgba(103,232,249,0.32)] transition hover:bg-lime-300"
             >
-              Let&apos;s Work Together
+              Trabajemos juntos
               <ArrowRight className="h-4 w-4" />
             </Link>
           </nav>
@@ -65,7 +65,7 @@ export function HeroSection() {
         <div className="flex flex-1 items-center py-14">
           <div className="max-w-4xl">
             <p className="inline-flex rounded-full border border-lime-300/30 bg-lime-300/10 px-4 py-2 text-sm text-lime-100">
-              Personal innovation hub for web products, automations, and AI experiments
+              Hub personal de productos web, automatizaciones e ideas con IA
             </p>
             <h1 className="mt-8 max-w-5xl text-5xl font-semibold leading-[0.98] text-white drop-shadow-[0_0_28px_rgba(103,232,249,0.22)] sm:text-7xl lg:text-8xl">
               {hero.headline}
@@ -79,17 +79,17 @@ export function HeroSection() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="#projects"
+                href="#proyectos"
                 className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 font-medium text-slate-950 shadow-[0_0_36px_rgba(103,232,249,0.36)] transition hover:bg-lime-300"
               >
-                View My Projects
+                Ver proyectos
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="#contact"
+                href="#contacto"
                 className="inline-flex items-center gap-2 rounded-full border border-fuchsia-300/35 px-5 py-3 font-medium text-white transition hover:border-fuchsia-200 hover:bg-fuchsia-300/10"
               >
-                Let&apos;s Work Together
+                Trabajemos juntos
                 <MessageCircleMore className="h-4 w-4" />
               </Link>
             </div>

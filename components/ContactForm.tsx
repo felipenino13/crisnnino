@@ -16,11 +16,11 @@ export default function ContactForm() {
     const formEl = e.currentTarget;
     const formData = new FormData(formEl);
 
-    // Honeypot anti-spam: silently accept bot submissions.
+    // Honeypot anti-spam: acepta bots silenciosamente.
     const website = String(formData.get("website") ?? "");
     if (website.trim().length > 0) {
       setStatus("success");
-      setMessage("Message sent.");
+      setMessage("Mensaje enviado.");
       formEl.reset();
       return;
     }
@@ -50,11 +50,11 @@ export default function ContactForm() {
       }
 
       setStatus("success");
-      setMessage("Thanks. I will get back to you soon.");
+      setMessage("Gracias. Te contactare pronto.");
       formEl.reset();
     } catch {
       setStatus("error");
-      setMessage("The message could not be sent. Please try again in a moment.");
+      setMessage("No se pudo enviar el mensaje. Intenta de nuevo en un momento.");
     }
   }
 
@@ -62,14 +62,14 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="text-left">
         <p className="text-sm font-semibold uppercase text-cyan-200">
-          Contact
+          Contacto
         </p>
         <h3 className="mt-3 text-2xl font-semibold leading-tight text-white">
-          Tell me what you are building
+          Cuéntame qué estás construyendo
         </h3>
         <p className="mt-3 text-sm leading-6 text-slate-300">
-          Share the context, goal, and timeline. You can also email me directly
-          at{" "}
+          Comparte el contexto, objetivo y tiempos. También puedes escribirme
+          directamente a{" "}
           <a
             href="mailto:hola@crisnnino.com"
             className="font-medium text-lime-200 underline decoration-lime-200/40 underline-offset-4"
@@ -93,14 +93,14 @@ export default function ContactForm() {
 
       <div className="space-y-2">
         <label htmlFor="name" className="text-sm text-neutral-200">
-          Name
+          Nombre
         </label>
         <input
           id="name"
           name="name"
           type="text"
           autoComplete="name"
-          placeholder="Your name"
+          placeholder="Tu nombre"
           className="w-full rounded-lg border border-cyan-300/18 bg-white/[0.035] px-4 py-3 text-cyan-50 placeholder:text-cyan-100/35 outline-none focus:border-cyan-300"
           required
           disabled={status === "loading"}
@@ -126,7 +126,7 @@ export default function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
           <label htmlFor="phone" className="text-sm text-neutral-200">
-            Phone number
+            Celular
           </label>
           <input
             id="phone"
@@ -141,7 +141,7 @@ export default function ContactForm() {
 
         <div className="space-y-2">
           <label htmlFor="projectType" className="text-sm text-neutral-200">
-            Project type
+            Tipo de proyecto
           </label>
           <select
             id="projectType"
@@ -151,20 +151,20 @@ export default function ContactForm() {
             disabled={status === "loading"}
           >
             <option value="" disabled>
-              Select an option
+              Selecciona una opcion
             </option>
-            <option value="digital-product">Digital product or MVP</option>
-            <option value="web-platform">Website or landing system</option>
-            <option value="automation">Automation or AI workflow</option>
-            <option value="ux-ui">UX/UI design</option>
-            <option value="consulting">Consulting or collaboration</option>
+            <option value="digital-product">Producto digital o MVP</option>
+            <option value="web-platform">Sitio web o landing system</option>
+            <option value="automation">Automatizacion o flujo con IA</option>
+            <option value="ux-ui">Diseño UX/UI</option>
+            <option value="consulting">Consultoría o colaboración</option>
           </select>
         </div>
       </div>
 
       <div className="space-y-2">
         <label htmlFor="budget" className="text-sm text-neutral-200">
-          Estimated budget
+          Presupuesto estimado
         </label>
         <select
           id="budget"
@@ -174,23 +174,23 @@ export default function ContactForm() {
           disabled={status === "loading"}
         >
           <option value="" disabled>
-            Not sure yet
+            Aun no estoy seguro
           </option>
-          <option value="under-1000">Under USD 1,000</option>
+          <option value="under-1000">Menos de USD 1,000</option>
           <option value="1000-3000">USD 1,000 - 3,000</option>
           <option value="3000-6000">USD 3,000 - 6,000</option>
-          <option value="over-6000">Over USD 6,000</option>
+          <option value="over-6000">Mas de USD 6,000</option>
         </select>
       </div>
 
       <div className="space-y-2">
         <label htmlFor="message" className="text-sm text-neutral-200">
-          What do you want to build?
+          Que quieres construir?
         </label>
         <textarea
           id="message"
           name="message"
-          placeholder="Example: I need to validate a product idea, automate a workflow, or launch a scalable web experience."
+          placeholder="Ejemplo: quiero validar una idea, automatizar un flujo o lanzar una experiencia web escalable."
           rows={5}
           className="w-full resize-none rounded-lg border border-cyan-300/18 bg-white/[0.035] px-4 py-3 text-cyan-50 placeholder:text-cyan-100/35 outline-none focus:border-cyan-300"
           required
@@ -217,10 +217,10 @@ export default function ContactForm() {
           disabled={status === "loading"}
           className="w-full rounded-lg bg-cyan-300 px-5 py-3 text-sm font-medium text-slate-950 shadow-[0_0_34px_rgba(103,232,249,0.28)] transition hover:bg-lime-300 disabled:opacity-60"
         >
-          {status === "loading" ? "Sending..." : "Contact Me"}
+          {status === "loading" ? "Enviando..." : "Contáctame"}
         </button>
         <p className="mt-3 text-xs leading-5 text-slate-400">
-          I respond to product, automation, consulting, and collaboration inquiries.
+          Respondo consultas sobre productos, automatización, consultoría y colaboración.
         </p>
       </div>
     </form>

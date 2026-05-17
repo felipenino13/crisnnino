@@ -11,36 +11,36 @@ import {
 export const siteUrl = "https://www.crisnnino.com";
 
 export const navigation = [
-  { label: "Who I Am", href: "#who-i-am" },
-  { label: "What I Do", href: "#what-i-do" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Perfil", href: "#perfil" },
+  { label: "Qué hago", href: "#que-hago" },
+  { label: "Proyectos", href: "#proyectos" },
+  { label: "Contacto", href: "#contacto" },
 ];
 
 export const hero = {
-  headline: "Designing, Automating, and Launching Digital Products",
+  headline: "Diseño, automatizo y lanzo productos digitales",
   subheadline:
-    "I turn ideas into websites, automations, and scalable digital products that solve real problems.",
+    "Transformo ideas en sitios web, automatizaciones y productos digitales escalables que resuelven problemas reales.",
   positioning:
-    "Cristian Nino is a UX/UI Designer, Automation Builder, and Digital Product Creator who transforms ideas into scalable digital products.",
+    "Cristian Niño es UX/UI Designer, Automation Builder y Digital Product Creator. Conecta diseño, código, IA y automatización para lanzar soluciones digitales con impacto.",
 };
 
-export const whoIAm = {
+export const profile = {
   intro:
-    "I'm Cristian Nino, a UX/UI Designer, Automation Builder, and Digital Product Creator based in Colombia.",
+    "Soy Cristian Niño, creador de productos digitales basado en Colombia.",
   body:
-    "I combine design, code, automation, and artificial intelligence to create digital products that help businesses grow and ideas become reality.",
+    "Combino UX/UI, desarrollo frontend, automatización e inteligencia artificial para convertir ideas en productos web, flujos operativos y herramientas que ayudan a crecer.",
   context:
-    "My work spans higher education, healthcare, marketing, and product development.",
+    "He trabajado en educación superior, salud, marketing y desarrollo de producto, siempre con foco en claridad, conversión y ejecución.",
 };
 
 export const highlights = [
-  "10+ years of digital experience",
+  "10+ años de experiencia digital",
   "UX/UI Design",
-  "Next.js Development",
-  "Automation with n8n",
-  "AI Integration",
-  "SEO and Growth",
+  "Desarrollo con Next.js",
+  "Automatización con n8n",
+  "Integración de IA",
+  "SEO y Growth",
 ];
 
 export type Capability = {
@@ -52,85 +52,95 @@ export type Capability = {
 export const capabilities: Capability[] = [
   {
     title: "UX/UI Design",
-    description: "Designing intuitive and conversion-focused digital experiences.",
+    description:
+      "Diseño experiencias digitales intuitivas, claras y enfocadas en conversión.",
     icon: Palette,
   },
   {
-    title: "Web Development",
-    description: "Building fast, scalable websites and landing pages.",
+    title: "Desarrollo web",
+    description:
+      "Construyo sitios, landing pages y productos web rápidos, escalables y mantenibles.",
     icon: Code2,
   },
   {
-    title: "Automation & AI",
-    description: "Creating workflows and AI agents that reduce manual work.",
+    title: "Automatización e IA",
+    description:
+      "Creo flujos, agentes y sistemas que reducen trabajo manual y aceleran operaciones.",
     icon: Bot,
   },
   {
-    title: "Digital Product Development",
-    description: "Transforming ideas into MVPs and scalable products.",
+    title: "Productos digitales",
+    description:
+      "Transformo ideas en MVPs, herramientas internas y productos listos para validar mercado.",
     icon: Rocket,
   },
   {
-    title: "SEO & Growth",
-    description: "Optimizing visibility, conversions, and performance.",
+    title: "SEO y Growth",
+    description:
+      "Optimizo visibilidad, rendimiento, conversión y puntos de crecimiento medibles.",
     icon: LineChart,
   },
 ];
 
 export const projects = [
   {
-    name: "Family Pets",
-    description: "A platform to manage pet health, vaccines, and reminders.",
-    category: "Digital Product",
-    status: "Concept",
-    href: "https://pets.crisnnino.com",
+    name: "Petis",
+    description:
+      "Producto web para gestionar mascotas, salud, vacunas, recordatorios y acompañamiento familiar.",
+    category: "Producto digital",
+    status: "Live",
+    href: "https://petis.crisnnino.com/",
     image: "/img/digital-product-creator-visual.png",
   },
   {
-    name: "Digital Invitations",
+    name: "Invitaciones Digitales",
     description:
-      "Create beautiful invitations for baby showers, birthdays, and weddings.",
-    category: "Web Product",
-    status: "Concept",
+      "Crea invitaciones visuales para baby showers, cumpleaños, bodas y eventos especiales.",
+    category: "Producto web",
+    status: "Concepto",
     href: "https://invitaciones.crisnnino.com",
     image: "/img/poster-babyshower.jpg",
   },
   {
     name: "Landing Engine",
-    description: "Generate high-converting landing pages at scale.",
-    category: "Growth Tool",
-    status: "In Development",
-    href: "#contact",
+    description:
+      "Sistema para generar landing pages de alta conversión a escala.",
+    category: "Growth tool",
+    status: "En desarrollo",
+    href: "#contacto",
     image: "/img/automation-leads-visual.png",
   },
   {
     name: "Automation Lab",
-    description: "AI agents and automated workflows for business operations.",
-    category: "Automation",
-    status: "Active",
+    description:
+      "Agentes de IA y flujos automatizados para operaciones, marketing y seguimiento comercial.",
+    category: "Automatización",
+    status: "Activo",
     href: "https://automation.crisnnino.com",
     image: "/img/lab-experiments-visual.png",
   },
   {
     name: "Health Dashboard",
-    description: "Personal and family health tracking and insights.",
-    category: "Private Product",
-    status: "Private",
-    href: "#contact",
+    description:
+      "Dashboard privado para seguimiento de salud personal y familiar con datos accionables.",
+    category: "Producto privado",
+    status: "Privado",
+    href: "#contacto",
     image: "/img/process-workflow-visual.png",
   },
   {
     name: "Design System Tools",
-    description: "Reusable UI components and templates.",
-    category: "Design Systems",
-    status: "Active",
-    href: "#contact",
+    description:
+      "Componentes, patrones y plantillas reutilizables para acelerar productos digitales.",
+    category: "Design systems",
+    status: "Activo",
+    href: "#contacto",
     image: "/img/hero-portfolio-visual.png",
   },
 ];
 
 export const projectLinks = [
-  "pets.crisnnino.com",
+  "petis.crisnnino.com",
   "invitaciones.crisnnino.com",
   "automation.crisnnino.com",
   "landing.crisnnino.com",
@@ -138,13 +148,13 @@ export const projectLinks = [
 
 export const schemaKeywords = [
   "UX/UI Designer Colombia",
-  "Digital Product Creator",
+  "Creador de productos digitales",
   "Automation Builder",
   "Next.js Developer",
-  "n8n Automation Expert",
-  "AI Integration",
-  "Product Development",
-  "SEO and Growth",
+  "Experto en automatización n8n",
+  "Integración de IA",
+  "Desarrollo de productos digitales",
+  "SEO y Growth",
 ];
 
 export const decorativeSparkles = Sparkles;

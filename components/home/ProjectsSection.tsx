@@ -7,21 +7,21 @@ import { SectionHeading } from "./SectionHeading";
 export function ProjectsSection() {
   return (
     <section
-      id="projects"
+      id="proyectos"
       className="bg-[linear-gradient(180deg,#05060f_0%,#080a18_48%,#05060f_100%)] px-6 py-24 text-white sm:px-10 lg:px-16"
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             className="max-w-2xl"
-            eyebrow="Projects"
-            title="A collection of products, experiments, and tools I am building."
+            eyebrow="Proyectos"
+            title="Productos, experimentos y herramientas que estoy construyendo."
             tone="light"
           />
           <p className="max-w-xl text-base leading-7 text-cyan-100/70">
-            This website is the central hub for current products, private
-            experiments, and future subdomains as they move from concept to live
-            businesses.
+            Este sitio funciona como hub central para productos en subdominios,
+            herramientas privadas y experimentos que pueden convertirse en
+            negocios digitales.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export function ProjectsSection() {
                   href={project.href}
                   className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-cyan-200 transition hover:text-lime-200"
                 >
-                  Open project
+                  Abrir proyecto
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

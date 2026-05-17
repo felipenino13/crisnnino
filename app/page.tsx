@@ -3,18 +3,18 @@ import { HomePage } from "@/components/home/HomePage";
 import { siteUrl } from "@/components/home/content";
 
 export const metadata: Metadata = {
-  title: "Cristian Niño | UX/UI Designer, Automation Builder & Digital Product Creator",
+  title: "Cristian Niño | UX/UI Designer, Automation Builder y Digital Product Creator",
   description:
-    "I design, automate, and launch digital products that help businesses grow and ideas become reality.",
+    "Diseño, automatizo y lanzo productos digitales que ayudan a las empresas a crecer y a convertir ideas en realidad.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Cristian Niño | UX/UI Designer, Automation Builder & Digital Product Creator",
+    title: "Cristian Niño | UX/UI Designer, Automation Builder y Digital Product Creator",
     description:
-      "I design, automate, and launch digital products that help businesses grow and ideas become reality.",
+      "Diseño, automatizo y lanzo productos digitales que ayudan a las empresas a crecer y a convertir ideas en realidad.",
     url: siteUrl,
-    siteName: "Cris Nino",
+    siteName: "Cris Niño",
     images: ["/opengraph-image"],
     locale: "es_CO",
     type: "website",
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cristian Niño | Digital Product Creator",
     description:
-      "UX/UI, automation, AI, web products, and scalable digital business ideas.",
+      "UX/UI, automatización, IA, productos web e ideas de negocio escalables.",
     images: ["/twitter-image"],
   },
   keywords: [
     "UX/UI Designer Colombia",
-    "Digital Product Creator",
+    "Creador de productos digitales",
     "Automation Builder",
     "Next.js Developer",
-    "n8n Automation Expert",
+    "Experto en automatización n8n",
   ],
 };
 

@@ -29,7 +29,7 @@ type ChatWidgetProps = {
 
 export default function ChatWidget({
   title = "Cris Bot",
-  subtitle = "Consultas sobre servicios web, automatizacion y proyectos.",
+  subtitle = "Consultas sobre servicios web, automatización y proyectos.",
   endpoint,
   persistKey = "crisnnino_chat_v1",
 }: ChatWidgetProps) {

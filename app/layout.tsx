@@ -21,34 +21,34 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.crisnnino.com"),
   title: {
-    default: "Cristian Niño | UX/UI Designer, Automation Builder & Digital Product Creator",
-    template: "%s | Cris Nino",
+    default: "Cristian Niño | UX/UI Designer, Automation Builder y Digital Product Creator",
+    template: "%s | Cris Niño",
   },
   description:
-    "I design, automate, and launch digital products that help businesses grow and ideas become reality.",
-  applicationName: "Cris Nino",
+    "Diseño, automatizo y lanzo productos digitales que ayudan a las empresas a crecer y a convertir ideas en realidad.",
+  applicationName: "Cris Niño",
   category: "technology",
-  authors: [{ name: "Cris Nino", url: "https://www.crisnnino.com" }],
-  creator: "Cris Nino",
-  publisher: "Cris Nino",
+  authors: [{ name: "Cris Niño", url: "https://www.crisnnino.com" }],
+  creator: "Cris Niño",
+  publisher: "Cris Niño",
   keywords: [
     "Cristian Niño",
     "UX UI Designer Colombia",
-    "Digital Product Creator",
+    "Creador de productos digitales",
     "Automation Builder",
     "Next.js Developer",
-    "n8n Automation Expert",
+    "Experto en automatización n8n",
   ],
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Cristian Niño | UX/UI Designer, Automation Builder & Digital Product Creator",
+    title: "Cristian Niño | UX/UI Designer, Automation Builder y Digital Product Creator",
     description:
-      "I design, automate, and launch digital products that help businesses grow and ideas become reality.",
+      "Diseño, automatizo y lanzo productos digitales que ayudan a las empresas a crecer y a convertir ideas en realidad.",
     url: "https://www.crisnnino.com",
-    siteName: "Cris Nino",
+    siteName: "Cris Niño",
     images: ["/opengraph-image"],
     locale: "es_CO",
     type: "website",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cristian Niño | Digital Product Creator",
     description:
-      "UX/UI, automation, AI, web products, and scalable digital business ideas.",
+      "UX/UI, automatización, IA, productos web e ideas de negocio escalables.",
     images: ["/twitter-image"],
   },
 };
