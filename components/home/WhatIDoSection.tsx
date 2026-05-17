@@ -3,7 +3,10 @@ import { SectionHeading } from "./SectionHeading";
 
 export function WhatIDoSection() {
   return (
-    <section id="what-i-do" className="bg-white px-6 py-24 sm:px-10 lg:px-16">
+    <section
+      id="what-i-do"
+      className="bg-[radial-gradient(circle_at_20%_0%,rgba(103,232,249,0.13),transparent_34%),linear-gradient(180deg,#08111f_0%,#05060f_100%)] px-6 py-24 sm:px-10 lg:px-16"
+    >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
@@ -11,7 +14,7 @@ export function WhatIDoSection() {
             eyebrow="What I Do"
             title="Design, automation, and product execution under one roof."
           />
-          <p className="max-w-xl text-lg leading-8 text-slate-700">
+          <p className="max-w-xl text-lg leading-8 text-cyan-100/72">
             I help teams and founders move from raw idea to shipped digital
             product, combining strategy, UX, frontend development, automation,
             AI, SEO, and growth thinking.
@@ -22,15 +25,15 @@ export function WhatIDoSection() {
           {capabilities.map(({ title, description, icon: Icon }) => (
             <article
               key={title}
-              className="rounded-lg border border-slate-200 bg-slate-50 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 hover:bg-white hover:shadow-[0_28px_70px_rgba(15,23,42,0.09)]"
+              className="rounded-lg border border-cyan-300/18 bg-white/[0.045] p-6 shadow-[0_0_42px_rgba(103,232,249,0.08)] backdrop-blur transition hover:-translate-y-1 hover:border-fuchsia-300/40 hover:bg-fuchsia-300/[0.055] hover:shadow-[0_0_60px_rgba(244,114,182,0.16)]"
             >
-              <div className="inline-flex rounded-lg bg-slate-950 p-3 text-amber-300">
+              <div className="inline-flex rounded-lg bg-cyan-300/10 p-3 text-cyan-200 ring-1 ring-cyan-300/20">
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-6 text-xl font-semibold text-slate-950">
+              <h3 className="mt-6 text-xl font-semibold text-white">
                 {title}
               </h3>
-              <p className="mt-4 text-base leading-7 text-slate-700">
+              <p className="mt-4 text-base leading-7 text-cyan-100/70">
                 {description}
               </p>
             </article>

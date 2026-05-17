@@ -48,7 +48,7 @@ export function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main className="overflow-hidden bg-slate-50 text-slate-950">
+      <main className="overflow-hidden bg-[#05060f] text-cyan-50">
         <HeroSection />
         <WhoIAmSection />
         <WhatIDoSection />

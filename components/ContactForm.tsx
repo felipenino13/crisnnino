@@ -61,7 +61,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="text-left">
-        <p className="text-sm font-semibold uppercase text-amber-300/80">
+        <p className="text-sm font-semibold uppercase text-cyan-200">
           Contact
         </p>
         <h3 className="mt-3 text-2xl font-semibold leading-tight text-white">
@@ -72,7 +72,7 @@ export default function ContactForm() {
           at{" "}
           <a
             href="mailto:hola@crisnnino.com"
-            className="font-medium text-amber-200 underline decoration-amber-200/40 underline-offset-4"
+            className="font-medium text-lime-200 underline decoration-lime-200/40 underline-offset-4"
           >
             hola@crisnnino.com
           </a>
@@ -101,7 +101,7 @@ export default function ContactForm() {
           type="text"
           autoComplete="name"
           placeholder="Your name"
-          className="w-full rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
+          className="w-full rounded-lg border border-cyan-300/18 bg-white/[0.035] px-4 py-3 text-cyan-50 placeholder:text-cyan-100/35 outline-none focus:border-cyan-300"
           required
           disabled={status === "loading"}
         />
@@ -117,7 +117,7 @@ export default function ContactForm() {
           type="email"
           autoComplete="email"
           placeholder="you@example.com"
-          className="w-full rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
+          className="w-full rounded-lg border border-cyan-300/18 bg-white/[0.035] px-4 py-3 text-cyan-50 placeholder:text-cyan-100/35 outline-none focus:border-cyan-300"
           required
           disabled={status === "loading"}
         />
@@ -134,7 +134,7 @@ export default function ContactForm() {
             type="tel"
             autoComplete="tel"
             placeholder="+57 300 000 0000"
-            className="w-full rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
+            className="w-full rounded-lg border border-cyan-300/18 bg-white/[0.035] px-4 py-3 text-cyan-50 placeholder:text-cyan-100/35 outline-none focus:border-cyan-300"
             disabled={status === "loading"}
           />
         </div>
@@ -146,7 +146,7 @@ export default function ContactForm() {
           <select
             id="projectType"
             name="projectType"
-            className="w-full rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 outline-none focus:border-neutral-600"
+            className="w-full rounded-lg border border-cyan-300/18 bg-[#05060f] px-4 py-3 text-cyan-50 outline-none focus:border-cyan-300"
             defaultValue=""
             disabled={status === "loading"}
           >
@@ -169,7 +169,7 @@ export default function ContactForm() {
         <select
           id="budget"
           name="budget"
-          className="w-full rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 outline-none focus:border-neutral-600"
+          className="w-full rounded-lg border border-cyan-300/18 bg-[#05060f] px-4 py-3 text-cyan-50 outline-none focus:border-cyan-300"
           defaultValue=""
           disabled={status === "loading"}
         >
@@ -192,7 +192,7 @@ export default function ContactForm() {
           name="message"
           placeholder="Example: I need to validate a product idea, automate a workflow, or launch a scalable web experience."
           rows={5}
-          className="w-full resize-none rounded-lg border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-500 outline-none focus:border-neutral-600"
+          className="w-full resize-none rounded-lg border border-cyan-300/18 bg-white/[0.035] px-4 py-3 text-cyan-50 placeholder:text-cyan-100/35 outline-none focus:border-cyan-300"
           required
           disabled={status === "loading"}
         />
@@ -215,7 +215,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full rounded-lg bg-white px-5 py-3 text-sm font-medium text-black transition hover:opacity-90 disabled:opacity-60"
+          className="w-full rounded-lg bg-cyan-300 px-5 py-3 text-sm font-medium text-slate-950 shadow-[0_0_34px_rgba(103,232,249,0.28)] transition hover:bg-lime-300 disabled:opacity-60"
         >
           {status === "loading" ? "Sending..." : "Contact Me"}
         </button>

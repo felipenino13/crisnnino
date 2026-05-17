@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f1e8;
-  --foreground: #101828;
+  --background: #05060f;
+  --foreground: #e6fbff;
+  --cyber-bg: #05060f;
+  --cyber-cyan: #67e8f9;
+  --cyber-magenta: #f472b6;
+  --cyber-green: #a3e635;
 }
 
 @theme inline {
@@ -44,8 +48,8 @@ h6 {
 }
 
 ::selection {
-  background: #fcd34d;
-  color: #0f172a;
+  background: var(--cyber-cyan);
+  color: #020617;
 }
 
 a,
@@ -62,6 +66,6 @@ select {
 }
 
 :focus-visible {
-  outline: 2px solid #f59e0b;
+  outline: 2px solid var(--cyber-cyan);
   outline-offset: 3px;
 }

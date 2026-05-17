@@ -8,7 +8,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="bg-neutral-950 px-6 py-24 text-white sm:px-10 lg:px-16"
+      className="bg-[linear-gradient(180deg,#05060f_0%,#080a18_48%,#05060f_100%)] px-6 py-24 text-white sm:px-10 lg:px-16"
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
@@ -18,7 +18,7 @@ export function ProjectsSection() {
             title="A collection of products, experiments, and tools I am building."
             tone="light"
           />
-          <p className="max-w-xl text-base leading-7 text-slate-300">
+          <p className="max-w-xl text-base leading-7 text-cyan-100/70">
             This website is the central hub for current products, private
             experiments, and future subdomains as they move from concept to live
             businesses.
@@ -29,7 +29,7 @@ export function ProjectsSection() {
           {projectLinks.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300"
+              className="rounded-full border border-lime-300/25 bg-lime-300/10 px-3 py-1 text-xs text-lime-100"
             >
               {item}
             </span>
@@ -40,7 +40,7 @@ export function ProjectsSection() {
           {projects.map((project) => (
             <article
               key={project.name}
-              className="overflow-hidden rounded-lg border border-white/10 bg-white/5 transition hover:border-white/20 hover:bg-white/[0.08]"
+              className="overflow-hidden rounded-lg border border-cyan-300/18 bg-white/[0.045] shadow-[0_0_44px_rgba(103,232,249,0.08)] transition hover:-translate-y-1 hover:border-fuchsia-300/45 hover:bg-fuchsia-300/[0.055] hover:shadow-[0_0_66px_rgba(244,114,182,0.14)]"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
@@ -50,25 +50,25 @@ export function ProjectsSection() {
                   sizes="(min-width: 1024px) 30vw, 90vw"
                   className="object-cover transition duration-500 hover:scale-[1.03]"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0)_25%,rgba(15,23,42,0.56)_100%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,6,15,0)_22%,rgba(5,6,15,0.78)_100%)]" />
               </div>
 
               <div className="p-7">
-                <p className="text-sm uppercase tracking-normal text-amber-200/70">
+                <p className="text-sm uppercase tracking-normal text-cyan-200/80">
                   {project.category}
                 </p>
                 <div className="mt-5 flex items-start justify-between gap-4">
                   <h3 className="text-2xl font-semibold">{project.name}</h3>
-                  <span className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">
+                  <span className="shrink-0 rounded-full border border-fuchsia-300/25 bg-fuchsia-300/10 px-3 py-1 text-xs text-fuchsia-100">
                     {project.status}
                   </span>
                 </div>
-                <p className="mt-4 text-base leading-7 text-slate-300">
+                <p className="mt-4 text-base leading-7 text-cyan-100/70">
                   {project.description}
                 </p>
                 <Link
                   href={project.href}
-                  className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-amber-200 transition hover:text-amber-100"
+                  className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-cyan-200 transition hover:text-lime-200"
                 >
                   Open project
                   <ArrowRight className="h-4 w-4" />

@@ -14,9 +14,10 @@ export function SectionHeading({
   tone = "dark",
 }: SectionHeadingProps) {
   const eyebrowClass =
-    tone === "light" ? "text-amber-200/70" : "text-slate-500";
-  const titleClass = tone === "light" ? "text-white" : "text-slate-950";
-  const descriptionClass = tone === "light" ? "text-slate-300" : "text-slate-700";
+    tone === "light" ? "text-cyan-200/80" : "text-fuchsia-300";
+  const titleClass = tone === "light" ? "text-white" : "text-cyan-50";
+  const descriptionClass =
+    tone === "light" ? "text-cyan-100/70" : "text-cyan-100/72";
 
   return (
     <div className={className}>
