@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Geist_Mono, Space_Grotesk, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
@@ -16,16 +17,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-import type { Metadata } from "next";
+const defaultTitle =
+  "Cristian Niño | UX/UI Designer, Automation Builder y Digital Product Creator";
+const defaultDescription =
+  "Diseño, automatizo y lanzo productos digitales que convierten ideas en soluciones escalables.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.crisnnino.com"),
   title: {
-    default: "Cristian Niño | UX/UI Designer, Automation Builder y Digital Product Creator",
+    default: defaultTitle,
     template: "%s | Cris Niño",
   },
-  description:
-    "Diseño, automatizo y lanzo productos digitales que ayudan a las empresas a crecer y a convertir ideas en realidad.",
+  description: defaultDescription,
   applicationName: "Cris Niño",
   category: "technology",
   authors: [{ name: "Cris Niño", url: "https://www.crisnnino.com" }],
@@ -34,19 +37,19 @@ export const metadata: Metadata = {
   keywords: [
     "Cristian Niño",
     "UX UI Designer Colombia",
-    "Creador de productos digitales",
+    "Digital Product Creator",
     "Automation Builder",
+    "AI Builder",
     "Next.js Developer",
-    "Experto en automatización n8n",
+    "n8n Automation Expert",
   ],
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Cristian Niño | UX/UI Designer, Automation Builder y Digital Product Creator",
-    description:
-      "Diseño, automatizo y lanzo productos digitales que ayudan a las empresas a crecer y a convertir ideas en realidad.",
+    title: defaultTitle,
+    description: defaultDescription,
     url: "https://www.crisnnino.com",
     siteName: "Cris Niño",
     images: ["/opengraph-image"],

@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { BriefcaseBusiness, FileText, GitBranch, Mail } from "lucide-react";
+import { BriefcaseBusiness, FileText, Mail } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 export function ContactSection() {
@@ -34,31 +33,18 @@ export function ContactSection() {
               <p>
                 Email directo:{" "}
                 <a
-                  href="mailto:hola@crisnnino.com"
+                  href="mailto:cristianfelipenino@gmail.com"
                   className="underline decoration-white/50 underline-offset-4"
                 >
-                  hola@crisnnino.com
+                  cristianfelipenino@gmail.com
                 </a>
-              </p>
-            </div>
-            <div className="flex items-start gap-3">
-              <GitBranch className="mt-1 h-5 w-5 shrink-0" />
-              <p>
-                También puedes revisar código y experimentos en{" "}
-                <Link
-                  href="https://github.com/felipenino13"
-                  className="underline decoration-white/50 underline-offset-4"
-                >
-                  github.com/felipenino13
-                </Link>
-                .
               </p>
             </div>
             <div className="flex items-start gap-3">
               <FileText className="mt-1 h-5 w-5 shrink-0" />
               <p>
-                Si estas contratando, puedo compartir experiencia, stack y
-                proyectos relevantes en un formato mas puntual.
+                Si estás contratando, puedo compartir experiencia, stack y
+                proyectos relevantes en un formato más puntual.
               </p>
             </div>
           </div>

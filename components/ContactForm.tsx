@@ -50,7 +50,7 @@ export default function ContactForm() {
       }
 
       setStatus("success");
-      setMessage("Gracias. Te contactare pronto.");
+      setMessage("Gracias. Te contactaré pronto.");
       formEl.reset();
     } catch {
       setStatus("error");
@@ -71,10 +71,10 @@ export default function ContactForm() {
           Comparte el contexto, objetivo y tiempos. También puedes escribirme
           directamente a{" "}
           <a
-            href="mailto:hola@crisnnino.com"
+            href="mailto:cristianfelipenino@gmail.com"
             className="font-medium text-lime-200 underline decoration-lime-200/40 underline-offset-4"
           >
-            hola@crisnnino.com
+            cristianfelipenino@gmail.com
           </a>
           .
         </p>
@@ -151,11 +151,11 @@ export default function ContactForm() {
             disabled={status === "loading"}
           >
             <option value="" disabled>
-              Selecciona una opcion
+              Selecciona una opción
             </option>
             <option value="digital-product">Producto digital o MVP</option>
             <option value="web-platform">Sitio web o landing system</option>
-            <option value="automation">Automatizacion o flujo con IA</option>
+            <option value="automation">Automatización o flujo con IA</option>
             <option value="ux-ui">Diseño UX/UI</option>
             <option value="consulting">Consultoría o colaboración</option>
           </select>
@@ -174,18 +174,18 @@ export default function ContactForm() {
           disabled={status === "loading"}
         >
           <option value="" disabled>
-            Aun no estoy seguro
+            Aún no estoy seguro
           </option>
           <option value="under-1000">Menos de USD 1,000</option>
           <option value="1000-3000">USD 1,000 - 3,000</option>
           <option value="3000-6000">USD 3,000 - 6,000</option>
-          <option value="over-6000">Mas de USD 6,000</option>
+          <option value="over-6000">Más de USD 6,000</option>
         </select>
       </div>
 
       <div className="space-y-2">
         <label htmlFor="message" className="text-sm text-neutral-200">
-          Que quieres construir?
+          ¿Qué quieres construir?
         </label>
         <textarea
           id="message"

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, GitBranch, MessageCircleMore } from "lucide-react";
+import { ArrowRight, MessageCircleMore } from "lucide-react";
 import { hero, navigation } from "./content";
 
 export function HeroSection() {
@@ -45,13 +45,6 @@ export function HeroSection() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="https://github.com/felipenino13"
-              className="inline-flex items-center gap-2 rounded-full border border-cyan-300/25 px-4 py-2 text-cyan-50 transition hover:border-cyan-200 hover:bg-cyan-300/10"
-            >
-              <GitBranch className="h-4 w-4" />
-              GitHub
-            </Link>
             <Link
               href="#contacto"
               className="inline-flex items-center gap-2 rounded-full bg-cyan-300 px-4 py-2 font-medium text-slate-950 shadow-[0_0_32px_rgba(103,232,249,0.32)] transition hover:bg-lime-300"

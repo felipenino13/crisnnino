@@ -45,7 +45,7 @@ export function ProjectsSection() {
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={project.image}
-                  alt={`${project.name} project visual`}
+                  alt={`Vista previa del proyecto ${project.name}`}
                   fill
                   sizes="(min-width: 1024px) 30vw, 90vw"
                   className="object-cover transition duration-500 hover:scale-[1.03]"
@@ -68,6 +68,7 @@ export function ProjectsSection() {
                 </p>
                 <Link
                   href={project.href}
+                  aria-label={`Abrir proyecto ${project.name}`}
                   className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-cyan-200 transition hover:text-lime-200"
                 >
                   Abrir proyecto

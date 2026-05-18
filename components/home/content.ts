@@ -22,7 +22,7 @@ export const hero = {
   subheadline:
     "Transformo ideas en sitios web, automatizaciones y productos digitales escalables que resuelven problemas reales.",
   positioning:
-    "Cristian Niño es UX/UI Designer, Automation Builder y Digital Product Creator. Conecta diseño, código, IA y automatización para lanzar soluciones digitales con impacto.",
+    "Cristian Niño diseña, automatiza y lanza productos digitales que convierten ideas en soluciones escalables.",
 };
 
 export const profile = {
@@ -82,7 +82,16 @@ export const capabilities: Capability[] = [
   },
 ];
 
-export const projects = [
+export type Project = {
+  name: string;
+  description: string;
+  category: string;
+  status: "Idea" | "MVP" | "Beta" | "Live" | "Private";
+  href: string;
+  image: string;
+};
+
+export const projects: Project[] = [
   {
     name: "Petis",
     description:
@@ -90,68 +99,31 @@ export const projects = [
     category: "Producto digital",
     status: "Live",
     href: "https://petis.crisnnino.com/",
-    image: "/img/digital-product-creator-visual.png",
+    image: "/img/petis-cover-facebook.jpg",
   },
   {
     name: "Invitaciones Digitales",
     description:
       "Crea invitaciones visuales para baby showers, cumpleaños, bodas y eventos especiales.",
     category: "Producto web",
-    status: "Concepto",
+    status: "Beta",
     href: "https://invitaciones.crisnnino.com",
     image: "/img/poster-babyshower.jpg",
-  },
-  {
-    name: "Landing Engine",
-    description:
-      "Sistema para generar landing pages de alta conversión a escala.",
-    category: "Growth tool",
-    status: "En desarrollo",
-    href: "#contacto",
-    image: "/img/automation-leads-visual.png",
-  },
-  {
-    name: "Automation Lab",
-    description:
-      "Agentes de IA y flujos automatizados para operaciones, marketing y seguimiento comercial.",
-    category: "Automatización",
-    status: "Activo",
-    href: "https://automation.crisnnino.com",
-    image: "/img/lab-experiments-visual.png",
-  },
-  {
-    name: "Health Dashboard",
-    description:
-      "Dashboard privado para seguimiento de salud personal y familiar con datos accionables.",
-    category: "Producto privado",
-    status: "Privado",
-    href: "#contacto",
-    image: "/img/process-workflow-visual.png",
-  },
-  {
-    name: "Design System Tools",
-    description:
-      "Componentes, patrones y plantillas reutilizables para acelerar productos digitales.",
-    category: "Design systems",
-    status: "Activo",
-    href: "#contacto",
-    image: "/img/hero-portfolio-visual.png",
   },
 ];
 
 export const projectLinks = [
   "petis.crisnnino.com",
   "invitaciones.crisnnino.com",
-  "automation.crisnnino.com",
-  "landing.crisnnino.com",
 ];
 
 export const schemaKeywords = [
   "UX/UI Designer Colombia",
-  "Creador de productos digitales",
+  "Digital Product Creator",
   "Automation Builder",
+  "AI Builder",
   "Next.js Developer",
-  "Experto en automatización n8n",
+  "n8n Automation Expert",
   "Integración de IA",
   "Desarrollo de productos digitales",
   "SEO y Growth",
